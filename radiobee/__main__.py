@@ -100,6 +100,8 @@ if __name__ == "__main__":
         ["data/test_en.txt", "data/test_zh.txt"],
         ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt"],
         ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt"],
+        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt"],
+        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt"],
     ]
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
