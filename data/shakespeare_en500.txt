@@ -1,0 +1,500 @@
+Copyright © Foreign Language Teaching and Research Press 2016
+All rights reserved. No part of this publication may be reproduced or distributed by any means, or stored in a database or retrieval system, without the prior written permission of Foreign Language Teaching and Research Press.
+Published by Foreign Language Teaching and Research Press
+No. 19 Xisanhuan Beilu
+http://www.fltrp.com
+The Tempest
+Copyright©The Royal Shakespeare Company, 2007
+All rights reserved
+Published by arrangement with Random House, an imprint of the Random House Publishing Group, a division of Random House, Inc.
+ISBN 978-7-5135-7223-1
+Introduction to The Tempest
+The Tempest
+User's Guide
+4 In der Beschränkung zeigt sich erst der Meister, / Und das Gesetz nur kann uns Freiheit geben. 参见http://www.business-it.nl/files/7d413a5dca62fc735a072b16fbf050b1-27.php.
+5 Vergebens werden ungebundene Geister / Nach der Vollendung reiner Höhe streben. 参见http://www.cosmiq.de/qa/show/3454062/Vergebens-werden-ungebundne-Geister-Nach-der-Vollendung-reiner-Hoehe-streben-Was-ist-dieBedeutung-dieser-2-Verse-Ich-komm-nicht-drauf/t.
+Introduction to The Tempest
+The Tempest was almost certainly Shakespeare's last solo-authored play. We do not know whether he anticipated that this would be the case. It was also the first play to be printed in the First Folio. Again, we do not know whether it was given pride of place because the editors of the Folio regarded it as a showpiece – the summation of the master's art – or for the more mundane reason that they had a clean copy in the clear hand of the scribe Ralph Crane, which would have given the compositors a relatively easy start as they set to work on the mammoth task of typesetting nearly a million words of Shakespeare. Whether it found its position by chance or design, The Tempest's place at the end of Shakespeare's career and the beginning of his collected works has profoundly shaped responses to the play ever since the early nineteenth century. It has come to be regarded as the touchstone of Shakespearean interpretation.
+The narrative is concentrated on questions of mastery and rule. During the tempest in the opening scene, the normal social order is out of joint: the boatswain commands the courtiers in the knowledge that the roaring waves care nothing for 'the name of king'. Then the back story, unfolded at length in Act 1 scene 2, tells of conspirators who do not respect the title of duke: we learn of Prospero's loss of power in Milan and the compensatory command he has gained over Ariel and Caliban on the island. The Ferdinand and Miranda love-knot is directed towards the future government of Milan and Naples. There is further politic plotting: Sebastian and Antonio's plan to murder King Alonso and good Gonzalo, the madcap scheme of the base-born characters to overthrow Prospero and make drunken butler Stephano king of the island. The theatrical coups performed by Prospero, assisted by Ariel and the other spirits of the island – the freezing of the conspirators, the harpy and the vanishing banquet, the masque of goddesses and agricultural workers, the revelation of the lovers playing at chess – all serve the purpose of requiting the sins of the past, restoring order in the present and preparing for a harmonious future. Once the work is done, Ariel is released (with a pang) and Prospero is ready to prepare his own spirit for death. Even Caliban will 'seek for grace'.
+But Shakespeare never keeps it simple. Prospero's main aim in conjuring up the storm and bringing the court to the island is to force his usurping brother Antonio into repentance. Yet when the climactic confrontation comes, Antonio does not say a word in reply to Prospero's combination of forgiveness and demand. He wholly fails to follow the good example set by Alonso a few lines before. As for Antonio's sidekick Sebastian, he has the temerity to ascribe Prospero's magical foresight to demonic influence. For all the powers at Prospero's command, there is no way of predicting or controlling human nature. A conscience cannot be created where there is none.
+Samuel Taylor Coleridge described Prospero as 'the very Shakespeare, as it were, of the tempest'. In other words, the leading character's conjuring up of the storm in the opening scene corresponds to the dramatist's conjuring up of the whole world of the play. The art of Prospero harnesses the power of nature in order to bring the other Italian characters to join him in his exile; by the same account, the art of Shakespeare transforms the platform of the stage into a ship at sea and then 'an uninhabited island'. 'Art' is the play's key word. Caliban is Prospero's 'other' because he represents the state of nature. In the Darwinian nineteenth century, he was recast as the 'missing link' between humankind and our animal ancestors.
+Prospero's back story tells of a progression from the 'liberal arts' that offered a training for governors to the more dangerous 'art' of magic. Magical thinking was universal in the age of Shakespeare. Everyone was brought up to believe that there was another realm beyond that of nature, a realm of the spirit and of spirits. 'Natural' and 'demonic' magic were the two branches of the study and manipulation of preternatural phenomena. Magic meant the knowledge of hidden things and the art of working wonders. For some, it was the highest form of natural philosophy: the word came from magia, the ancient Persian term for wisdom. The 'occult philosophy', as it was known, postulated a hierarchy of powers, with influence descending from disembodied ('intellectual') angelic spirits to the stellar and planetary world of the heavens to earthly things and their physical changes. The magician ascends to knowledge of higher powers and draws them down artificially to produce wonderful effects. Cornelius Agrippa, author of the influential De occulta philosophia, argued that 'ceremonial magic' was needed in order to reach the angelic intelligences above the stars. This was the highest and most dangerous level of activity, since it was all too easy – as Christopher Marlowe's Dr. Faustus found – to conjure up a devil instead of an angel. The more common form of 'natural magic' involved 'marrying' heaven to earth, working with the occult correspondences between the stars and the elements of the material world. The enduring conception of astrological influences is a vestige of this mode of thought. For a Renaissance mage such as Girolamo Cardano, who practised in Milan, medicine, natural philosophy, mathematics, astrology and dream interpretation were all intimately connected.
+But natural magic could never escape its demonic shadow. For every learned mage such as Agrippa or Cardano, there were a thousand village 'wise women' practising folk medicine and fortunetelling. All too often, the latter found themselves demonized as witches, blamed for crop failure, livestock disease and the other ills of life in the pre-modern era. Prospero is keen to contrast his own white magic with the black arts of Sycorax, Caliban's mother, but the play establishes strong parallels between them. He was exiled from Milan to the island because his devotion to his secret studies gave Antonio the opportunity to usurp the dukedom, whilst Sycorax was exiled from Algiers to the island because she was accused of witchcraft; he arrived with his young daughter, whilst she arrived pregnant with the child she had supposedly conceived by sleeping with the devil. Each of them can command the tides and manipulate the spirit-world that is embodied by Ariel. When Prospero comes to renounce his magic, he describes his powers in words borrowed from the incantation of another witch, Medea in Ovid's great storehouse of ancient mythological tales, the Metamorphoses. Prospero at some level registers his own kinship with Sycorax when he says of Caliban 'this thing of darkness I / Acknowledge mine'. The splitting of subject and verb across the line ending here, ensuring a moment's hesitation in the acknowledgement, is an extreme instance of the suppleness with which late Shakespeare handles his iambic pentameter verse.
+Shakespeare loved to set up oppositions, then shade his black and white into grey areas of moral complexity. In Milan, Prospero's inward-looking study of the liberal arts had led to the loss of power and the establishment of tyranny. On the island he seeks to make amends by applying what he has learned, by using active magic to bring repentance, restore his dukedom and set up a dynastic marriage. Yet at the beginning of the fifth act he sees that to be truly human is a matter not of exercising wisdom for the purposes of rule, but of practising a more strictly Christian version of virtue. For sixteenth-century humanists, education in princely virtue meant the cultivation for political ends of wisdom, magnanimity, temperance and integrity. For Prospero what finally matters is kindness. And this is something that the master learns from his pupil: it is Ariel who teaches Prospero about 'feeling', not vice versa.
+Ariel represents fire and air, concord and music, loyal service. Caliban is of the earth, associated with discord, drunkenness and rebellion. Ariel's medium of expression is delicate verse, whilst Caliban's is for the most part a robust, often ribald, prose like that of the jester Trinculo and drunken butler Stephano. But, astonishingly, it is Caliban who speaks the play's most beautiful verse when he hears the music of Ariel. Even in prose, Caliban has a wonderful attunement to the natural environment: he knows every corner, every species of the island. Prospero calls him 'A devil, a born devil, on whose nature / Nurture can never stick', yet in the very next speech Caliban enters with the line 'Pray you tread softly, that the blind mole may not hear a footfall', words of such strong imagination that Prospero's claim is instantly belied.
+Caliban's purported sexual assault on Miranda shows that Prospero failed in his attempt to tame the animal instincts of the 'man-monster' and educate him into humanity. But who bears responsibility for the failure? Could it be that the problem arises from what Prospero has imprinted on Caliban's memory, not from the latter's nature? Caliban initially welcomed Prospero to the island and offered to share its fruits, every bit in the manner of the 'noble savages' in Michel de Montaigne's essay 'Of the Cannibals', which was another source from which Shakespeare quoted in the play (Gonzalo's Utopian 'golden age' vision of how he would govern the isle is borrowed from the English translation of Montaigne). Caliban only acts basely after Prospero has printed that baseness on him; what makes Caliban 'filth' may be the lessons in which Prospero has taught him that he is 'filth'.
+Caliban understands the power of the book: as fashioners of modern coups d'état begin by seizing the television station, so he stresses that the rebellion against Prospero must begin by taking possession of his books. But Stephano has another book. 'Here is that which will give language to you', he says to Caliban, replicating Prospero's gaining of control through language – but in a different mode. Textual inculcation is replaced by intoxication: the book that is kissed is the bottle. The dialogic spirit that is fostered by Shakespeare's technique of scenic counterpoint thus calls into question Prospero's use of books. If Stephano and Trinculo achieve through their alcohol what Prospero achieves through his teaching (in each case Caliban is persuaded to serve and to share the fruits of the isle), is not that teaching exposed as potentially nothing more than a means of social control? Prospero often seems more interested in the power-structure that is established by his schoolmastering than in the substance of what he teaches. It is hard to see how making Ferdinand carry logs is intended to inculcate virtue; its purpose is to elicit submission.
+Arrival on an island uninhabited by Europeans, talk of 'plantation', an encounter with a 'savage' in which alcohol is exchanged for survival skills, a process of language learning in which it is made clear who is master and who is slave, fear that the slave will impregnate the master's daughter, the desire to make the savage seek for Christian 'grace' (though also a proposal that he should be shipped to England and exhibited for profit), references to the dangerous weather of the Bermudas and to a 'brave new world': in all these respects, The Tempest conjures up the spirit of European colonialism. Shakespeare had contacts with members of the Virginia Company, which had been established by royal charter in 1606 and was instrumental in the foundation of the Jamestown colony in America the following year. Some time in the autumn of 1610, a letter reached England describing how a fleet sent to reinforce the colony had been broken up by a storm in the Caribbean; the ship carrying the new governor had been driven to Bermuda, where the crew and passengers had wintered. Though the letter was not published at the time, it circulated in manuscript and inspired at least two pamphlets about these events. Scholars debate the extent to which Shakespeare made direct use of these materials, but certain details of the storm and the island seem to be derived from them. There is no doubt that the seemingly miraculous survival of the governor's party and the fertile environment they discovered in the Bahamas were topics of great public interest at the time of the play.
+The British Empire, the slave trade and the riches of the spice routes lay in the future. Shakespeare's play is set in the Mediterranean, not the Caribbean. Caliban cannot strictly be described as a native of the island. And yet the play intuits the dynamic of colonial possession and dispossession with such uncanny power that in 1950 a book by Octave Mannoni called The Psychology of Colonisation could argue that the process functioned by means of a pair of reciprocal neuroses: the 'Prospero complex' on the part of the colonizer and the 'Caliban complex' on that of the colonized. It was in response to Mannoni that Frantz Fanon wrote Black Skin, White Masks, a book that did much to shape the intellectual terrain of the 'post-colonial' era. For many Anglophone Caribbean writers of the late twentieth century, The Tempest, and the figure of Caliban in particular, became a focal point for discovery of their own literary voices. The play is less a reflection of imperial history – after all, Prospero is an exile, not a venturer – than an anticipation of it.
+As regular players at royal command performances in the Whitehall Palace, the King's Men knew that from the end of 1608 onwards, the teenage Princess Elizabeth was resident at court. A cultured young woman who enjoyed music and dancing, she participated in court festivals and in 1610 danced in a masque called Tethys. Masques – performed by a mixed cast of royalty, courtiers and professional actors, staged with spectacular scenery and elaborate music – were the height of fashion at court in these years. Shakespeare's friend and rival Ben Jonson, working in conjunction with the designer Inigo Jones, was carving out a role for himself as the age's leading masque-wright. In 1608 he introduced the 'antimasque' (or 'antemasque'), a convention whereby grotesque figures known as 'antics' danced boisterously prior to the graceful and harmonious masque itself. Shakespeare nods to contemporary fashion by including a betrothal masque within the action of The Tempest, together with the antimasque farce of Caliban, Stephano and Trinculo smelling of horse-piss, stealing clothes from a line and being chased away by dogs. One almost wonders whether the figure of Prospero is a gentle parody of Ben Jonson: his theatrical imagination is bound by the classical unities of time and place (as Jonson's was) and he stages a court masque (as Jonson did). Perhaps this is why a few years later, in his Bartholomew Fair, Jonson parodied The Tempest in return.
+Prospero's Christian language reaches its most sustained pitch in the epilogue, but his final request is for the indulgence not of God but of the audience. At the last moment, humanist learning is replaced not by Christian but by theatrical faith. Because of this it has been possible for the play to be read, as it so often has been since the Romantic period, as Shakespeare's defence of his own dramatic art. Ironically, though, the play itself is profoundly sceptical of the power of the book and even of the theatre. The book of art is drowned, whilst the masque and its players dissolve into vacancy like a 'baseless fabric' or a dream.
+KEY FACTS
+PLOT: Twelve years ago Prospero, the Duke of Milan, was usurped by his brother, Antonio, with the help of Alonso, King of Naples, and the King's brother Sebastian. Prospero and his baby daughter Miranda were put to sea and landed on a distant island where ever since, by the use of his magic art, he has ruled over the spirit Ariel and the savage Caliban. He uses his powers to raise a storm which shipwrecks his enemies on the island. Alonso searches for his son, Ferdinand, although fearing him to be drowned. Sebastian plots to kill Alonso and seize the crown. The drunken butler, Stephano, and the jester, Trinculo, encounter Caliban and are persuaded by him to kill Prospero so that they can rule the island. Ferdinand meets Miranda and they fall instantly in love. Prospero sets heavy tasks to test Ferdinand and, when satisfied, presents the young couple with a betrothal masque. As Prospero's plan draws to its climax, he confronts his enemies and forgives them. Prospero grants Ariel his freedom and prepares to leave the island for Milan.
+MAJOR PARTS: (with percentage of lines/number of speeches/scenes on stage) Prospero (30%/115/5), Ariel (9%/45/6), Caliban (8%/50/5), Stephano (7%/60/4), Gonzalo (7%/52/4), Sebastian (5%/67/4), Antonio (6%/57/4), Miranda (6%/49/4), Ferdinand (6%/31/4), Alonso (5%/40/4), Trinculo (4%/39/4).
+LINGUISTIC MEDIUM: 80% verse, 20% prose.
+DATE: 1611. Performed at court, 1 November 1611; uses source material not available before autumn 1610.
+SOURCES: No known source for main plot, but some details of the tempest and the island seem to derive from William Strachey, A True Reportory of the Wreck and Redemption of Sir Thomas Gates, Knight (written 1610, published in Purchas his Pilgrims, 1625) and perhaps Sylvester Jourdain, A Discovery of the Bermudas (1610) and the Virginia Company's pamphlet A True Declaration of the Estate of the Colony in Virginia (1610); several allusions to Virgil's Aeneid and Ovid's Metamorphoses (most notably the imitation in Act 5 scene 1 of Arthur Golding's 1567 translation of Medea's incantation in Ovid's 7th book); Gonzalo's 'golden age' oration in Act 2 scene 1 based closely on Michel de Montaigne's essay 'Of the Cannibals', translated by John Florio (1603).
+TEXT: First Folio of 1623 is the only early printed text. Based on a transcript by Ralph Crane, professional scribe working for the King's Men. Generally good quality of printing.
+The Tempest
+PROSPERO, the right Duke of Milan
+MIRANDA, his daughter
+ALONSO, King of Naples
+SEBASTIAN, his brother
+ANTONIO, Prospero's brother, the usurping Duke of Milan
+FERDINAND, son to the King of Naples
+GONZALO, an honest old councillor
+ADRIAN and FRANCISCO, lords
+TRINCULO, a jester
+STEPHANO, a drunken butler
+MASTER of a ship
+BOATSWAIN
+MARINERS
+CALIBAN, a savage and deformed slave
+ARIEL, an airy spirit
+The Scene: an uninhabited island
+Act 1
+Scene 11running scene 1
+A tempestuous noise of thunder and lightning heard. Enter a Shipmaster and a Boatswain2
+MASTER Boatswain!
+BOATSWAIN Here, master. What cheer3?
+MASTER Good4: speak to th'mariners. Fall to't yarely5, or we run ourselves aground! Bestir6, bestir!
+Exit
+Enter Mariners
+BOATSWAIN Heigh, my hearts7! Cheerly8, cheerly, my hearts! Yare, yare9! Take in the topsail10. Tend11 to th'master's whistle.— Blow, till thou burst thy wind, if room enough12.
+To the storm
+Enter Alonso, Sebastian, Antonio, Ferdinand, Gonzalo and others
+ALONSO Good boatswain, have13 care. Where's the master? Play the14 men.
+BOATSWAIN I pray now, keep below.
+ANTONIO Where is the master, boatswain?
+BOATSWAIN Do you not hear him? You mar15 our labour. Keep your cabins! You do assist the storm.
+GONZALO Nay, good, be patient.
+BOATSWAIN When the sea is. Hence16! What cares these roarers17 for the name of king? To cabin! Silence! Trouble us not.
+GONZALO Good, yet remember whom thou hast aboard.
+BOATSWAIN None that I more love than myself. You are a counsellor18: if you can command these elements to silence, and work the peace of the present19, we will not hand20 a rope more: use your authority. If you cannot, give thanks you have lived so long, and make yourself ready in your cabin for the mischance of the hour, if it so hap21.— Cheerly, good hearts!—
+To the Mariners
+Out of our way, I say.
+To the Courtiers
+Exeunt [Boatswain with Mariners, followed by Alonso, Sebastian, Antonio and Ferdinand]
+GONZALO I have great comfort from this fellow: methinks he hath no drowning mark22 upon him: his complexion is perfect gallows23. Stand fast, good Fate, to his hanging: make the rope of his destiny24 our cable25, for our own doth little advantage. If he be not born to be hanged, our case is miserable.
+Exit
+Enter Boatswain
+BOATSWAIN Down with the topmast26! Yare! Lower, lower! Bring her to try with main course27. (A cry within) A plague upon this howling! They are louder than the weather or our office28.
+Enter Sebastian, Antonio and Gonzalo
+Yet again? What do you here? Shall we give o'er29 and drown? Have you a mind to sink?
+SEBASTIAN A pox30cur31 o'your throat, you bawling, blasphemous, incharitable dog!
+BOATSWAIN Work you then.
+ANTONIO Hang, cur! Hang, you whoreson, insolent noisemaker! We are less afraid to be drowned than thou art.
+GONZALO I'll warrant him for drowning32, though the ship were no stronger than a nutshell and as leaky as an unstanched33 wench.
+BOATSWAIN Lay her ahold34, ahold! Set her two courses off to35 sea again! Lay her off!
+Enter Mariners, wet
+MARINERS All lost! To prayers, to prayers! All lost!
+BOATSWAIN What, must our mouths be cold36?
+GONZALO The king and prince at prayers: let's assist them, for our case is as theirs.
+SEBASTIAN I'm out of patience.
+ANTONIO We are merely37 cheated of our lives by drunkards. This wide-chopped38 rascal: would thou mightst lie drowning, the washing of ten tides39!
+GONZALO He'll be hanged yet40,
+Though every drop of water swear against it
+And gape at wid'st41 to glut42 him.
+[Exeunt Boatswain and Mariners]
+A confused noise within
+[VOICES OFF-STAGE] Mercy on us! — We split43, we split! — Farewell, my wife and children! — Farewell, brother! — We split, we split, we split!
+ANTONIO Let's all sink wi'th'king.
+SEBASTIAN Let's take leave of him.
+Exeunt[Antonio and Sebastian]
+GONZALO Now would I give a thousand furlong44s of sea for an acre45 of barren ground: long heath46, brown furze47, anything. The wills above be done! But I would fain48 die a dry death.
+Exit
+Scene 249running scene 2
+Enter Prospero50 and Miranda51
+MIRANDA If by your art52, my dearest father, you have
+Put the wild waters in this roar, allay53 them.
+The sky, it seems, would pour down stinking pitch54,
+But that the sea, mounting to th'welkin's55 cheek,
+Dashes the fire56 out. O, I have suffered
+With those that I saw suffer: a brave57 vessel —
+Who had, no doubt, some noble creature in her —
+Dashed all to pieces. O, the cry did knock
+Against my very heart. Poor souls, they perished.
+Had I been any god of power, I would
+Have sunk the sea within the earth, or ere58
+It should the good ship so have swallowed, and
+The fraughting souls59 within her.
+PROSPERO Be collected60:
+No more amazement61. Tell your piteous heart
+There's no harm done.
+MIRANDA O, woe the day!
+PROSPERO No harm:
+I have done nothing but in care of thee —
+Of thee, my dear one, thee, my daughter — who
+Art ignorant of what thou art: nought knowing
+Of whence I am62, nor that I am more better63
+Than Prospero, master of a full poor cell64,
+And thy no greater father65.
+MIRANDA More to know66
+Did never meddle with67 my thoughts.
+PROSPERO 'Tis time
+I should inform thee further. Lend thy hand
+And pluck my magic garment from me. So:
+Lays down his magic cloak
+Lie there, my art. Wipe thou thine eyes, have comfort.
+The direful spectacle of the wreck, which touched
+The very virtue of compassion in thee,
+I have with such provision68 in mine art
+So safely ordered that there is no soul —
+No, not so much perdition69 as an hair
+Betid70 to any creature in the vessel
+Which thou heard'st cry, which thou saw'st sink. Sit down,
+Miranda sits
+For thou must now know further.
+MIRANDA You have often
+Begun to tell me what I am, but stopped
+And left me to a bootless inquisition71,
+Concluding 'Stay: not yet.'
+PROSPERO The hour's now come,
+The very minute bids thee ope72 thine ear:
+Obey, and be attentive. Canst thou remember
+A time before we came unto this cell?
+I do not think thou canst, for then thou wast not
+Out73 three years old.
+MIRANDA Certainly, sir, I can.
+PROSPERO By what? By any other house or person?
+Of any thing the image, tell me, that
+Hath kept with thy remembrance74.
+MIRANDA 'Tis far off,
+And rather like a dream than an assurance75
+That my remembrance warrants76. Had I not
+Four or five women once that tended77 me?
+PROSPERO Thou hadst; and more, Miranda. But how is it
+That this lives in thy mind? What see'st thou else
+In the dark backward78 and abysm79 of time?
+If thou rememb'rest aught80 ere thou cam'st here,
+How thou cam'st here thou mayst.
+MIRANDA But that I do not.
+PROSPERO Twelve year since, Miranda, twelve year since,
+Thy father was the Duke of Milan and
+A prince of power.
+MIRANDA Sir, are not you my father?
+PROSPERO Thy mother was a piece81 of virtue, and
+She said thou wast my daughter; and thy father
+Was Duke of Milan, and his only heir
+And princess, no worse issued82.
+MIRANDA O the heavens!
+What foul play had we, that we came from thence?
+Or blessèd83 wast we did?
+PROSPERO Both, both, my girl.
+By foul play — as thou say'st — were we heaved thence,
+But blessedly holp84 hither.
+MIRANDA O, my heart bleeds
+To think o'th'teen85 that I have turned you to86,
+Which is from87 my remembrance. Please you, further.
+PROSPERO My brother and thy uncle, called Antonio —
+I pray thee, mark88 me — that a brother should
+Be so perfidious89 — he whom next thyself
+Of all the world I loved, and to him put
+The manage90 of my state, as at that time
+Through all the signories91 it was the first,
+And Prospero the prime92 duke, being so reputed
+In dignity, and for the liberal arts93
+Without a parallel; those being all my study,
+The government I cast upon my brother
+And to my state94 grew stranger95, being transported
+And rapt96 in secret studies. Thy false uncle —
+Dost thou attend me?
+MIRANDA Sir, most heedfully.
+PROSPERO Being once perfected97 how to grant suits98,
+How to deny them, who t'advance and who
+To trash for over-topping99, new created
+The creatures that were mine100, I say, or changed 'em101,
+Or else new formed 'em102; having both the key103
+Of officer and office, set all hearts i'th'state
+To what tune pleased his ear, that104 now he was
+The ivy which had hid my princely trunk105
+And sucked my verdure106 out on't.— Thou attend'st not.
+MIRANDA O good sir, I do.
+PROSPERO I pray thee, mark me:
+I, thus neglecting worldly ends107, all dedicated
+To closeness108 and the bettering of my mind
+With that, which but109 by being so retired110,
+O'er-prized all popular rate111, in my false brother
+Awaked an evil nature, and my trust,
+Like a good parent112, did beget of113 him
+A falsehood in its contrary114, as great
+As my trust was, which had indeed no limit,
+A confidence sans115 bound. He being thus lorded116,
+Not only with what my revenue yielded,
+But what my power might else exact117: like one
+Who having into118 truth, by telling of it119,
+Made such a sinner of his memory
+To credit his own lie120, he did believe
+He was indeed the duke, out o'th'substitution121
+And executing th'outward face122 of royalty
+With all prerogative: hence his ambition growing —
+Dost thou hear?
+MIRANDA Your tale, sir, would cure deafness.
+PROSPERO To have no screen123 between this part he played,
+And him124 he played it for, he needs will be
+Absolute Milan125. Me — poor man — my library
+Was dukedom large enough: of temporal royalties126
+He thinks me now incapable. Confederates127 —
+So dry128 he was for sway129 — wi'th'King of Naples
+To give him annual tribute130, do him homage,
+Subject his coronet to his crown131, and bend
+The dukedom yet132 unbowed — alas, poor Milan —
+To most ignoble stooping.
+MIRANDA O the heavens!
+PROSPERO Mark his condition133 and th'event134, then tell me
+If this might be a brother135.
+MIRANDA I should sin
+To think but136 nobly of my grandmother:
+Good wombs have borne bad sons.
+PROSPERO Now the condition.
+This King of Naples, being an enemy
+To me inveterate137, hearkens138 my brother's suit,
+Which was, that he139, in lieu o'th'premises
+Of homage140, and I know not how much tribute141,
+Should presently extirpate142 me and mine
+Out of the dukedom, and confer fair Milan,
+With all the honours, on my brother: whereon,
+A treacherous army levied, one midnight
+Fated to th'purpose, did Antonio open
+The gates of Milan, and i'th'dead of darkness
+The ministers143 for th'purpose hurried thence144
+Me and thy crying self.
+MIRANDA Alack, for pity!
+I, not rememb'ring how I cried out then,
+Will cry it o'er again: it is a hint145
+That wrings mine eyes to't.
+PROSPERO Hear a little further,
+And then I'll bring thee to the present business
+Which now's upon's: without the which, this story
+Were most impertinent146.
+MIRANDA Wherefore did they not
+That hour destroy us?
+PROSPERO Well demanded, wench:
+My tale provokes that question. Dear, they durst147 not,
+So dear the love my people bore me: nor set
+A mark so bloody on the business: but
+With colours fairer, painted148 their foul ends.
+In few149, they hurried us aboard a barque150,
+Bore us some leagues to sea, where they prepared
+A rotten carcass of a butt151, not rigged,
+Nor tackle, sail, nor mast: the very rats
+Instinctively have quit it. There they hoist152 us,
+To cry to th'sea that roared to us; to sigh
+To th'winds, whose pity sighing back again,
+Did us but loving wrong153.
+MIRANDA Alack, what trouble
+Was I then to you!
+PROSPERO O, a cherubin154
+Thou wast that did preserve me. Thou didst smile,
+Infusèd with a fortitude from heaven,
+When I have decked155 the sea with drops full salt156,
+Under my burden groaned, which157 raised in me
+An undergoing stomach158, to bear up
+Against what should ensue.
+MIRANDA How came we ashore?
+Prospero sits
+PROSPERO By providence divine.
+Some food we had, and some fresh water, that
+A noble Neapolitan, Gonzalo,
+Out of his charity — who being then appointed
+Master of this design159 — did give us, with
+Rich garments, linens, stuffs160 and necessaries,
+Which since have steaded much161. So, of his gentleness162,
+Knowing I loved my books, he furnished me
+From mine own library with volumes that
+I prize above my dukedom.
+MIRANDA Would163 I might
+But ever see that man.
+PROSPERO Now I arise:
+Prospero stands
+Sit still164, and hear the last of our sea-sorrow.
+Here in this island we arrived, and here
+Have I, thy schoolmaster, made thee more profit165
+Than other princes can that have more time
+For vainer166 hours, and tutors not so careful167.
+MIRANDA Heavens thank you for't. And now, I pray you, sir,
+For still 'tis beating in my mind: your reason
+For raising this sea-storm?
+PROSPERO Know thus far forth:
+By accident most strange, bountiful Fortune —
+Now my dear lady168 — hath mine enemies
+Brought to this shore: and by my prescience169
+I find my zenith170 doth depend upon
+A most auspicious star, whose influence171
+If now I court not, but omit172, my fortunes
+Will ever after droop. Here cease more questions:
+Thou art inclined to sleep. 'Tis a good dullness173,
+And give it way174: I know thou canst not choose.—
+Miranda sleeps
+Come away, servant, come. I am ready now.
+Approach, my Ariel175, come.
+Enter Ariel
+ARIEL All hail, great master! Grave176 sir, hail! I come
+To answer thy best pleasure; be't to fly,
+To swim, to dive into the fire, to ride
+On the curled clouds: to thy strong bidding task177
+Ariel and all his quality178.
+PROSPERO Hast thou, spirit,
+Performed to point179 the tempest that I bade thee?
+ARIEL To every article.
+I boarded the king's ship: now on the beak180,
+Now in the waist181, the deck, in every cabin,
+I flamed amazement182: sometime I'd divide
+And burn in many places; on the topmast,
+The yards183 and bowsprit184 would I flame distinctly,
+Then meet and join. Jove's lightning, the precursors
+O'th'dreadful thunderclaps185, more momentary
+And sight-outrunning186 were not; the fire and cracks
+Of sulphurous roaring, the most mighty Neptune187
+Seem to besiege and make his bold waves tremble,
+Yea, his dread trident188 shake.
+PROSPERO My brave spirit!
+Who was so firm, so constant, that this coil189
+Would not infect his reason?
+ARIEL Not a soul
+But felt a fever of the mad190 and played
+Some tricks of desperation191. All but mariners
+Plunged in the foaming brine and quit the vessel,
+Then all afire192 with me: the king's son, Ferdinand,
+With hair up-staring193 — then like reeds, not hair —
+Was the first man that leaped; cried 'Hell is empty
+And all the devils are here.'
+PROSPERO Why, that's my spirit!
+But was not this nigh194 shore?
+ARIEL Close by, my master.
+PROSPERO But are they, Ariel, safe?
+ARIEL Not a hair perished:
+On their sustaining195 garments not a blemish,
+But fresher than before: and, as thou bad'st me,
+In troops196 I have dispersed them 'bout the isle.
+The king's son have I landed by himself,
+Whom I left cooling of197 the air with sighs
+In an odd angle198 of the isle, and sitting,
+His arms in this sad knot199.
+Folds his arms
+PROSPERO Of the king's ship,
+The mariners, say how thou hast disposed,
+And all the rest o'th'fleet?
+ARIEL Safely in harbour
+Is the king's ship: in the deep nook where once
+Thou call'dst me up at midnight to fetch dew200
+From the still-vexed Bermudas201, there she's hid;
+The mariners all under hatches202 stowed,
+Who, with a charm203 joined to their suffered labour204,
+I have left asleep: and for the rest o'th'fleet —
+Which I dispersed — they all have met again,
+And are upon the Mediterranean float205
+Bound sadly home for Naples,
+Supposing that they saw the king's ship wrecked
+And his great person perish.
+PROSPERO Ariel, thy charge
+Exactly is performed; but there's more work:
+What is the time o'th'day?
+ARIEL Past the mid season206.
+PROSPERO At least two glasses207. The time 'twixt six and now
+Must by us both be spent most preciously208.
+ARIEL Is there more toil? Since thou dost give me pains209,
+Let me remember210 thee what thou hast promised,
+Which is not yet performed me.
+PROSPERO How now? Moody211?
+What is't thou canst demand?
+ARIEL My liberty.
+PROSPERO Before the time be out212? No more!
+ARIEL I prithee,
+Remember I have done thee worthy service,
+Told thee no lies, made thee no mistakings, served
+Without or213 grudge or grumblings: thou did promise
+To bate me214 a full year.
+PROSPERO Dost thou forget
+From what a torment I did free thee?
+ARIEL No.
+PROSPERO Thou dost: and think'st it much to tread the ooze
+Of the salt deep215,
+To run upon the sharp wind of the north,
+To do me business in the veins o'th'earth
+When it is baked with frost.
+ARIEL I do not, sir.
+PROSPERO Thou liest, malignant thing. Hast thou forgot
+The foul witch Sycorax216, who with age and envy
+Was grown into a hoop217? Hast thou forgot her?
+ARIEL No, sir.
+PROSPERO Thou hast. Where was she born? Speak: tell me.
+ARIEL Sir, in Algiers218.
+PROSPERO O, was she so? I must
+Once in a month recount what thou hast been,
+Which thou forget'st. This damned witch Sycorax,
+For mischiefs manifold, and sorceries terrible
+To enter human hearing, from Algiers,
+Thou know'st, was banished: for one thing she did
+They would not take her life219. Is not this true?
+ARIEL Ay, sir.
+PROSPERO This blue-eyed220 hag221 was hither brought with child222,
+And here was left by th'sailors. Thou, my slave,
+As thou report'st thyself, was then her servant:
+And, for223 thou wast a spirit too delicate224
+To act her earthy225 and abhorred commands,
+Refusing her grand hests226, she did confine thee
+By help of her more potent ministers227,
+And in her most unmitigable228 rage,
+Into a cloven229 pine, within which rift
+Imprisoned thou didst painfully remain
+A dozen years: within which space she died,
+And left thee there, where thou didst vent thy groans
+As fast as mill-wheels strike230. Then was this island —
+Save for the son that she did litter231 here,
+A freckled whelp232, hag-born233 — not honoured with
+A human shape.
+ARIEL Yes: Caliban234 her son.
+PROSPERO Dull thing235, I say so: he, that Caliban
+Whom now I keep in service236. Thou best know'st
+What torment I did find thee in: thy groans
+Did make wolves howl and penetrate the breasts
+Of ever-angry bears237; it was a torment
+To lay upon the damned, which Sycorax
+Could not again undo. It was mine art,
+When I arrived and heard thee, that made gape238
+The pine and let thee out.
+ARIEL I thank thee, master.
+PROSPERO If thou more murmur'st239, I will rend240 an oak
+And peg241 thee in his knotty entrails242 till
+Thou hast howled away twelve winters.
+ARIEL Pardon, master:
+I will be correspondent243 to command
+And do my spriting244 gently245.
+PROSPERO Do so: and after two days
+I will discharge246 thee.
+ARIEL That's my noble master!
+What shall I do? Say what? What shall I do?
+PROSPERO Go make thyself like a nymph o'th'sea,
+Be subject to no sight but thine and mine: invisible
+To every eyeball else. Go take this shape
+And hither come in't: go! Hence with diligence!
+Exit [Ariel]
+Awake, dear heart, awake. Thou hast slept well. Awake.
+To Miranda
+MIRANDA The strangeness of your story put
+Heaviness247 in me.
+PROSPERO Shake it off. Come on:
+We'll visit Caliban, my slave, who never
+Yields us kind answer.
+MIRANDA 'Tis a villain248, sir, I do not love to look on.
+PROSPERO But, as 'tis,
+We cannot miss249 him: he does make our fire,
+Fetch in our wood and serves in offices250
+That profit us. What, ho! Slave! Caliban!
+Thou earth251, thou! Speak!
+CALIBAN There's wood enough within.
+Within
+PROSPERO Come forth, I say! There's other business for thee:
+Come, thou tortoise! When?
+Enter Ariel like a water-nymph
+Fine apparition: my quaint252 Ariel,
+Hark in thine ear.
+ARIEL My lord, it shall be done.
+Exit
+PROSPERO Thou poisonous slave, got253 by the devil himself
+Upon thy wicked dam254: come forth!
+Enter Caliban
+CALIBAN As wicked dew as e'er my mother brushed
+With raven's feather from unwholesome fen255
+Drop on you both! A southwest256 blow on ye

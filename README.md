@@ -1,5 +1,5 @@
 ---
-title: Radiobee Aligner
+title: radiobee aligner
 emoji: 🚧
 colorFrom: blue
 colorTo: red

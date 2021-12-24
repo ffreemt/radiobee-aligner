@@ -1,0 +1,17 @@
+chardet
+certifi
+charset-normalizer
+idna
+typing-extensions
+sklearn
+textacy
+logzero
+more_itertools
+psutil
+seaborn
+cchardet 
+tabulate 
+git+https://github.com/ffreemt/fast-langid 
+dotenv 
+varname 
+textacy 
