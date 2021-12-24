@@ -78,8 +78,8 @@ if __name__ == "__main__":
     ]
     outputs = ["dataframe"]
     # """
-    import logzero
-    logzero.loglevel(10)
+    # import logzero
+    # logzero.loglevel(10)
     logger.debug(" debug ")
     logger.info(" info ")
 
@@ -146,27 +146,29 @@ if __name__ == "__main__":
             # this wont work
             # for obj in [text1, text2, df1, lst1, lst2, ]:
             # savelzma(text1) wont work
-            joblib.dump(text1, f"data/{nameof(text1)}.lzma")
-            joblib.dump(text2, f"data/{nameof(text2)}.lzma")
-            joblib.dump(df1, f"data/{nameof(df1)}.lzma")
-            joblib.dump(lst1, f"data/{nameof(lst1)}.lzma")
-            joblib.dump(lst2, f"data/{nameof(lst2)}.lzma")
+
+            # for debugging
+            # joblib.dump(text1, f"data/{nameof(text1)}.lzma")
+            # joblib.dump(text2, f"data/{nameof(text2)}.lzma")
+            # joblib.dump(df1, f"data/{nameof(df1)}.lzma")
+            # joblib.dump(lst1, f"data/{nameof(lst1)}.lzma")
+            # joblib.dump(lst2, f"data/{nameof(lst2)}.lzma")
 
             cmat = lists2cmat(lst1, lst2)
 
             tset = pd.DataFrame(cmat2tset(cmat))
             tset.columns = ["x", "y", "cos"]
 
-            print("lst1: %s" % lst1)
-            print("lst2: %s" % lst2)
-            print("cmat: %s" % cmat)
-            print("tset: %s" % tset)
+            # for debugging, logger.debug logger.info dont show up
+            # print("lst1: %s" % lst1)
+            # print("lst2: %s" % lst2)
+            # print("cmat: %s" % cmat)
+            # print("tset: %s" % tset)
 
             logger.debug("lst1: %s", lst1)
             logger.debug("lst2: %s", lst2)
             logger.debug("cmat: %s", cmat)
             logger.debug("tset: %s", tset)
-
 
             # plt0 = plot_df(pd.DataFrame(cmat))
             df_ = tset
