@@ -1,0 +1,21 @@
+{
+  "name": "radiobee-aligner",
+  "version": "1.0.0",
+  "description": "---\r title: radiobee aligner\r emoji: 🚧\r colorFrom: blue\r colorTo: red\r sdk: gradio\r app_file: radiobee/__main__.py\r pinned: false\r ---",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "pyright": "pyright",
+    "flake8": "flake8.bat",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://huggingface.co/spaces/mikeee/radiobee-aligner"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

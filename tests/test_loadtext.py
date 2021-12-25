@@ -5,9 +5,11 @@ from radiobee.loadtext import loadtext
 
 
 def test_loadtext():
-    _ = loadtext("data/test_en.txt").splitlines()
-    _ = [elm for elm in _ if elm.strip()]
-    assert len(_) == 33
+    """Test loadtext."""
+    _ = loadtext("data/test_en.txt")
+    if _ is not None:
+        _ = [elm for elm in _.splitlines() if elm.strip()]
+        assert len(_) == 33
 
 
 @pytest.mark.xfail

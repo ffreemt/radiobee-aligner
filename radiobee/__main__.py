@@ -1,5 +1,5 @@
 """Run interactively."""
-from typing import Tuple, Optional
+from typing import Tuple  # , Optional
 
 import joblib
 from random import randint
@@ -12,7 +12,7 @@ import signal
 from varname import nameof
 from logzero import logger
 
-import numpy as np
+# import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -25,7 +25,8 @@ from radiobee.process_upload import process_upload
 from radiobee.files2df import files2df
 from radiobee.file2text import file2text
 from radiobee.lists2cmat import lists2cmat
-from radiobee.plot_df import plot_df
+
+# from radiobee.plot_df import plot_df
 from radiobee.cmat2tset import cmat2tset
 
 sns.set()
@@ -34,6 +35,7 @@ fastlid.set_languages = ["en", "zh"]
 
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 print("Press Ctrl+C to quit\n")
+
 
 def savelzma(obj, fileloc: str = None):
     if fileloc is None:
@@ -49,6 +51,7 @@ def greet(input):
 def upfile1(file1, file2=None) -> Tuple[str, str]:
     """Upload file1, file2."""
     return file1.name, f"'Sup yo! (your input: {input})"
+
 
 def process_2upoads(file1, file2):
     """Process stuff."""
@@ -87,7 +90,8 @@ if __name__ == "__main__":
     inputs = [
         gr.inputs.Textbox(
             # placeholder="Input something here",
-            default="test text")
+            default="test text"
+        )
     ]
     inputs = ["file", "file"]
     inputs = [
@@ -95,13 +99,32 @@ if __name__ == "__main__":
         # gr.inputs.File(file_count="multiple", label="file 2", optional=True),
         gr.inputs.File(label="file 2", optional=True),
     ]
+    inputs = [
+        gr.inputs.File(label="file 1"),
+        gr.inputs.File(label="file 2", optional=True),
+        gr.inputs.Slider(
+            minimum=1,
+            maximum=20,
+            step=1,
+            default=6,
+            # label="suggested min_samples value: 4-8",
+        ),
+        gr.inputs.Slider(
+            minimum=1,
+            maximum=20,
+            step=0.1,
+            default=2,
+            # label="suggested esp value: 1.7-3",
+        ),
+    ]
+
     examples = [
-        ["data/test_zh.txt", "data/test_en.txt"],
-        ["data/test_en.txt", "data/test_zh.txt"],
-        ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt"],
-        ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt"],
-        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt"],
-        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt"],
+        ["data/test_zh.txt", "data/test_en.txt", 6, 10, ],
+        ["data/test_en.txt", "data/test_zh.txt", 6, 10, ],
+        ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt", 6, 10, ],
+        ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt", 6, 10, ],
+        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt", 6, 10, ],
+        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt", 6, 10, ],
     ]
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
@@ -110,19 +133,20 @@ if __name__ == "__main__":
         headers=None,
         max_rows=12,  # 20
         max_cols=None,
-        overflow_row_behaviour='paginate',
-        type='auto',
+        overflow_row_behaviour="paginate",
+        type="auto",
         label="To be aligned",
     )
     outputs = [
-    out1,
-    "plot",
+        out1,
+        "plot",
     ]
     # outputs = ["dataframe", "plot", "plot"]  # wont work
     # outputs = ["dataframe"]
     # outputs = ["dataframe", "dataframe", ]
 
-    def fn(file1, file2):
+    # def fn(file1, file2):
+    def fn(file1, file2, min_samples, eps):
         """Process inputs."""
         logger.debug(" *debug* ")
 
@@ -172,9 +196,12 @@ if __name__ == "__main__":
 
             # plt0 = plot_df(pd.DataFrame(cmat))
             df_ = tset
-            min_samples: int = 6
-            eps: float = 10
-            ylim: Optional[int] = None
+
+            # moved to inputs
+            # min_samples: int = 6
+            # eps: float = 10
+
+            # ylim: Optional[int] = None
             xlabel: str = lang1
             ylabel: str = lang2
 
@@ -182,11 +209,22 @@ if __name__ == "__main__":
             sns.set_style("darkgrid")
 
             # fig, (ax0, ax1) = plt.subplots(1, 2, figsize=(11.69, 8.27))
-            fig, ([ax2, ax0], [ax1, ax3]) = plt.subplots(2, 2, figsize=(11.69, 8.27))
-            # plt.subplot_tool()
-            fig.subplots_adjust(hspace=.4)
+            # fig, ([ax2, ax0], [ax1, ax3]) = plt.subplots(2, 2, figsize=(11.69, 8.27))
+            # fig, (ax2, ax0, ax1) = plt.subplots(3)
+            # fig, (ax2, ax0, ax1) = plt.subplots(3, figsize=(11.69, 8.27))
+            # fig, (ax2, ax0, ax1) = plt.subplots(1, 3, figsize=(36.69, 8.27))
+            # fig, (ax2, ax0, ax1) = plt.subplots(1, 3, figsize=(66.69, 22.27))
+            # fig, (ax2, ax0, ax1) = plt.subplots(1, 3)
+            # fig.subplots_adjust(hspace=.4)
 
-            sns.heatmap(cmat, cmap="viridis_r", ax=ax2).invert_yaxis()
+            fig = plt.figure()
+            gs = fig.add_gridspec(2, 2, wspace=0.4, hspace=0.58)
+            ax2 = fig.add_subplot(gs[0, 0])
+            ax0 = fig.add_subplot(gs[0, 1])
+            ax1 = fig.add_subplot(gs[1, 0])
+
+            cmap = "viridis_r"
+            sns.heatmap(cmat, cmap=cmap, ax=ax2).invert_yaxis()
             ax2.set_xlabel(xlabel)
             ax2.set_ylabel(ylabel)
             ax2.set_title("cos similarity heatmap")
@@ -196,10 +234,10 @@ if __name__ == "__main__":
             _ = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ > -1
             _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
 
-            df_.plot.scatter("x", "y", c="cos", cmap="viridis_r", ax=ax0)
+            df_.plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax0)
 
             # clustered
-            df_[_].plot.scatter("x", "y", c="cos", cmap="viridis_r", ax=ax1)
+            df_[_].plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax1)
 
             # outliers
             df_[_x].plot.scatter("x", "y", c="r", marker="x", alpha=0.6, ax=ax0)
@@ -211,7 +249,7 @@ if __name__ == "__main__":
 
             ax0.set_xlim(0, len1)
             ax0.set_ylim(0, len2)
-            ax0.set_title("max similarity along columns ('x': outliers)")
+            ax0.set_title("max along columns ('x': outliers)")
 
             # ax1.set_xlabel("en")
             # ax1.set_ylabel("zh")
@@ -227,14 +265,16 @@ if __name__ == "__main__":
         else:
             fig, ax1 = plt.subplots()
             df1 = pd.DataFrame(
-                [[5.1, 3.5, 0],
-                [4.9, 3.0, 0],
-                [7.0, 3.2, 1],
-                [6.4, 3.2, 1],
-                [5.9, 3.0, 2]],
-                columns=['length', 'width', 'species']
+                [
+                    [5.1, 3.5, 0],
+                    [4.9, 3.0, 0],
+                    [7.0, 3.2, 1],
+                    [6.4, 3.2, 1],
+                    [5.9, 3.0, 2],
+                ],
+                columns=["length", "width", "species"],
             )
-            df1.plot.scatter(x='length', y='width', c='DarkBlue', ax=ax1)
+            df1.plot.scatter(x="length", y="width", c="DarkBlue", ax=ax1)
             # plt_heatmap = plt
 
         # plt.scatter(df.length, df.width)  # gradio eturn plt.gcf() or plt
@@ -250,7 +290,22 @@ if __name__ == "__main__":
         # _ = pd.concat([df1.iloc[:4, :], pd.DataFrame([["...", "...", "...", ]], columns=df1.columns), df1.iloc[-2:, :]], ignore_index=True)
         # _ = pd.concat([df.iloc[:2, :], pd.DataFrame([[".", ".", "..."]], columns=df.columns),  df.iloc[-1:, :]], ignore_index=1)
 
-        _ = pd.concat([df1.iloc[:4, :], pd.DataFrame([["...", "...", ]], columns=df1.columns), df1.iloc[-4:, :]], ignore_index=1)
+        _ = pd.concat(
+            [
+                df1.iloc[:4, :],
+                pd.DataFrame(
+                    [
+                        [
+                            "...",
+                            "...",
+                        ]
+                    ],
+                    columns=df1.columns,
+                ),
+                df1.iloc[-4:, :],
+            ],
+            ignore_index=1,
+        )
 
         return _, plt
         # return _, plt
@@ -268,15 +323,21 @@ if __name__ == "__main__":
                 break
             server_port = server_port + randint(0, 50)
         else:
-            raise SystemExit(
-                f"Tried {numb} times to no avail, giving up..."
-            )
+            raise SystemExit(f"Tried {numb} times to no avail, giving up...")
 
-    article = dedent("""
-        Click "Clear" first for subsequent submits
-    """)
+    article = dedent(
+        """
+        ## NB
+        *   Click "Clear" first for subsequent submits when uploading files.
+        *   Suggested values : min_samples: 4-8, esp (minimum epsilon): 8-12. 
+           -   Smaller min_samples or larger esp will result in more aligned pairs but also more **false positives** (pairs falsly identified as candidates). On the other hand, larger min_samples or smaller esp values tend to miss 'good' pairs.
+    """
+    )
     css = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
-    css_file = ".input_file, .output_file {height: 9rem !important; width: 100% !important;}"
+    # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
+    css_file = (
+        ".input_file, .output_file {height: 9rem !important; width: 100% !important;}"
+    )
 
     logger.info("running at port %s", server_port)
 
@@ -297,7 +358,7 @@ if __name__ == "__main__":
         examples=examples,
         # theme="darkgrass",
         layout="vertical",  # horizontal unaligned
-        height=150,  # 500
+        # height=150,  # 500
         width=900,  # 900
         allow_flagging=False,
         flagging_options=["fatal", "bug", "brainstorm", "excelsior", "paragon"],

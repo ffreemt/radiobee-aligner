@@ -1,6 +1,6 @@
 """Convert two iesl to pandas.DataFrame."""
 from itertools import zip_longest
-import tempfile
+# import tempfile
 import pandas as pd
 from radiobee.process_upload import process_upload
 

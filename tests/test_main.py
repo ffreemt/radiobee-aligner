@@ -3,6 +3,8 @@
 import tempfile
 from fastlid import fastlid
 
+from logzero import logger
+
 # globals()["file2text"] = getattr(importlib.import_module(f"{radiobee.__name__}.file2text"), "file2text")
 # from radiobee.process_upload import process_upload  # same as file2text
 from radiobee.files2df import files2df
@@ -29,3 +31,5 @@ def test_file2file1():
 
     lst1 = [elm.strip() for elm in text1.splitlines() if elm.strip()]
     lst2 = [elm.strip() for elm in text2.splitlines() if elm.strip()]
+
+    del lst1, lst2

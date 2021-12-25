@@ -1,6 +1,6 @@
 """Convert two lists of str (texts) to correlation matrix."""
 # from typing import Dict, Iterable, Optional, Union
-from typing import Dict, Iterable, List, Optional, Union
+from typing import Dict, Iterable, List, Optional, Union  # noqa
 
 import numpy as np
 from textacy.representations import Vectorizer

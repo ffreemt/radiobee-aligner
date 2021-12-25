@@ -2,7 +2,7 @@
 
 refer also to fast-scores fast_scores.py and gen_model.py (sklearn.feature_extraction.text.TfidfVectorizer).
 """
-from typing import Dict, Iterable, List, Optional, Union
+from typing import Dict, Iterable, List, Optional, Union  # noqa
 import numpy as np
 from itertools import chain
 from psutil import virtual_memory

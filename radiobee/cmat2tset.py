@@ -1,5 +1,5 @@
 """Gen triple-set from a  matrix."""
-from typing import List, Tuple, Union
+from typing import List, Tuple, Union  # noqa
 
 import numpy as np
 import pandas as pd

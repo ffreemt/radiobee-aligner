@@ -8,7 +8,7 @@ doc_term_matrix
 
 tokenized_docs = [insert_spaces(elm).split() for elm in textzh]
 """
-from typing import Dict, Iterable, List, Optional, Union
+from typing import Dict, Iterable, List, Optional, Union  # noqa
 
 from textacy.representations import Vectorizer
 from logzero import logger
