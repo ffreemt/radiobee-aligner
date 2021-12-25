@@ -99,9 +99,28 @@ if __name__ == "__main__":
         # gr.inputs.File(file_count="multiple", label="file 2", optional=True),
         gr.inputs.File(label="file 2", optional=True),
     ]
+
+    # modi 1
+    _ = """
+        tf_type: Literal[linear, sqrt, log, binary] = 'linear'
+        idf_type: Optional[Literal[standard, smooth, bm25]] = None
+        dl_type: Optional[Literal[linear, sqrt, log]] = None
+        norm: norm: Optional[Literal[l1, l2]] = None
+        x min_df: int | float = 1
+        x max_df: int | float = 1.0
+    # """
+    input_tf_type = gr.inputs.Dropdown(["linear", "sqrt", "log", "binary"], default="linear")
+    input_idf_type = gr.inputs.Radio(["None", "standard", "smooth", "bm25"], default="None")  # need to convert "None" this to None in fn
+    input_dl_type = gr.inputs.Radio(["None", "linear", "sqrt", "log"], default="None")  # ditto
+    input_norm_type = gr.inputs.Radio(["None", "l1", "l2"], default="None")  # ditto
+
     inputs = [
         gr.inputs.File(label="file 1"),
         gr.inputs.File(label="file 2", optional=True),
+        input_tf_type,  # modi inputs
+        input_idf_type,
+        input_dl_type,
+        input_norm_type,
         gr.inputs.Slider(
             minimum=1,
             maximum=20,
@@ -118,13 +137,14 @@ if __name__ == "__main__":
         ),
     ]
 
+    # modi
     examples = [
-        ["data/test_zh.txt", "data/test_en.txt", 6, 10, ],
-        ["data/test_en.txt", "data/test_zh.txt", 6, 10, ],
-        ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt", 6, 10, ],
-        ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt", 6, 10, ],
-        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt", 6, 10, ],
-        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt", 6, 10, ],
+        ["data/test_zh.txt", "data/test_en.txt", "linear", "None", "None", "None", 6, 10, ],
+        ["data/test_en.txt", "data/test_zh.txt", "linear", "None", "None", "None", 6, 10, ],
+        ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt", "linear", "None", "None", "None", 6, 10, ],
+        ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt", "linear", "None", "None", "None", 6, 10, ],
+        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt", "linear", "None", "None", "None", 6, 10, ],
+        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt", "linear", "None", "None", "None", 6, 10, ],
     ]
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
@@ -146,9 +166,25 @@ if __name__ == "__main__":
     # outputs = ["dataframe", "dataframe", ]
 
     # def fn(file1, file2):
-    def fn(file1, file2, min_samples, eps):
+    # def fn(file1, file2, min_samples, eps):
+    def fn(
+        file1,
+        file2,
+        tf_type,
+        idf_type,
+        dl_type,
+        norm,
+        min_samples,
+        eps
+    ):
+        # modi fn
         """Process inputs."""
         logger.debug(" *debug* ")
+
+        # cnover "None" to None
+        for _ in [idf_type, dl_type, norm]:
+            if _ in "None":
+                _ = None
 
         # logger.info("file1: *%s*, file2: *%s*", file1, file2)
         logger.info("file1.name: *%s*, file2.name: *%s*", file1.name, file2.name)
@@ -178,7 +214,23 @@ if __name__ == "__main__":
             # joblib.dump(lst1, f"data/{nameof(lst1)}.lzma")
             # joblib.dump(lst2, f"data/{nameof(lst2)}.lzma")
 
-            cmat = lists2cmat(lst1, lst2)
+            # modi typing https://textacy.readthedocs.io/en/stable/api_reference/representations.html
+            # tf_type: Literal[linear, sqrt, log, binary] = 'linear'
+            # idf_tyep: Optional[Literal[standard, smooth, bm25]] = None
+            # dl_type: Optional[Literal[linear, sqrt, log]] = None
+            # norm: norm: Optional[Literal[l1, l2]] = None
+            # min_df: int | float = 1
+            # max_df: int | float = 1.0
+
+            # cmat = lists2cmat(lst1, lst2)
+            cmat = lists2cmat(
+                lst1,
+                lst2,
+                tf_type=tf_type,
+                idf_type=idf_type,
+                dl_type=dl_type,
+                norm=norm,
+            )
 
             tset = pd.DataFrame(cmat2tset(cmat))
             tset.columns = ["x", "y", "cos"]
@@ -329,8 +381,10 @@ if __name__ == "__main__":
         """
         ## NB
         *   Click "Clear" first for subsequent submits when uploading files.
-        *   Suggested values : min_samples: 4-8, esp (minimum epsilon): 8-12.
-           -   Smaller min_samples or larger esp will result in more aligned pairs but also more **false positives** (pairs falsly identified as candidates). On the other hand, larger min_samples or smaller esp values tend to miss 'good' pairs.
+        *   `tf_type` `itf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
+        *   Suggested `min_samples` and `esp` values -- `min_samples`: 4-8, `esp` (minimum epsilon): 8-12.
+           -   Smaller `min_samples` or larger `esp` will result in more aligned pairs but also more **false positives** (pairs falsely identified as candidates). On the other hand, larger `min_samples` or smaller `esp` values tend to miss 'good' pairs.
+        *   If you need a better image, you can right-click and select copy-image-address and open a new tab in the browser with the copied image address.
     """
     )
     css = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"

@@ -21,7 +21,7 @@ def lists2cmat(
         lang1: Optional[str] = None,
         lang2: Optional[str] = None,
         model: Vectorizer = None,
-        tf_type: str = 'linear',
+        tf_type: str = "linear",
         idf_type: Optional[str] = "smooth",
         # dl_type: Optional[str] = "sqrt",  # "lucene-style tfidf"
         dl_type: Optional[str] = None,  #
