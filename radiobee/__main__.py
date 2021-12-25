@@ -411,6 +411,7 @@ if __name__ == "__main__":
         article=article,
         examples=examples,
         # theme="darkgrass",
+        theme="grass",
         layout="vertical",  # horizontal unaligned
         # height=150,  # 500
         width=900,  # 900
