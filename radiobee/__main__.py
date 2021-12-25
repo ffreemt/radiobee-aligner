@@ -113,7 +113,7 @@ if __name__ == "__main__":
             minimum=1,
             maximum=20,
             step=0.1,
-            default=2,
+            default=10,
             # label="suggested esp value: 1.7-3",
         ),
     ]
