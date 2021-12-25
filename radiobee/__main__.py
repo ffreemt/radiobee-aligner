@@ -381,10 +381,11 @@ if __name__ == "__main__":
         """
         ## NB
         *   Click "Clear" first for subsequent submits when uploading files.
-        *   `tf_type` `itf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
+        *   `tf_type` `idf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
         *   Suggested `min_samples` and `esp` values -- `min_samples`: 4-8, `esp` (minimum epsilon): 8-12.
            -   Smaller `min_samples` or larger `esp` will result in more aligned pairs but also more **false positives** (pairs falsely identified as candidates). On the other hand, larger `min_samples` or smaller `esp` values tend to miss 'good' pairs.
         *   If you need to have a better look at the image, you can right-click on the image and select copy-image-address and open a new tab in the browser with the copied image address.
+        *   `Flag`: Should something go wrong, you can click Flag to save the output and inform the developer.
     """
     )
     css = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
@@ -416,7 +417,7 @@ if __name__ == "__main__":
         # height=150,  # 500
         width=900,  # 900
         allow_flagging=True,
-        flagging_options=["fatal", "bug", "brainstorm", "excelsior", "paragon"],
+        flagging_options=["fatal", "bug", "brainstorm", "excelsior", ],  # "paragon"],
         css=f"{css} {css_file}",
     )
 
