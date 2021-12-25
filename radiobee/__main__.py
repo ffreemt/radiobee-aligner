@@ -329,12 +329,12 @@ if __name__ == "__main__":
         """
         ## NB
         *   Click "Clear" first for subsequent submits when uploading files.
-        *   Suggested values : min_samples: 4-8, esp (minimum epsilon): 8-12. 
+        *   Suggested values : min_samples: 4-8, esp (minimum epsilon): 8-12.
            -   Smaller min_samples or larger esp will result in more aligned pairs but also more **false positives** (pairs falsly identified as candidates). On the other hand, larger min_samples or smaller esp values tend to miss 'good' pairs.
     """
     )
     css = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
-    # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
+    css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
     css_file = (
         ".input_file, .output_file {height: 9rem !important; width: 100% !important;}"
     )
