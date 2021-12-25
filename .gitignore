@@ -4,5 +4,4 @@ radiobee-aligner-pad.txt
 radiobee\en2zh_tokens.py
 radiobee/en2zh_tokens.py
 **/__pycache__/
-node_modules
 node_modules/
