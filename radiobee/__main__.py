@@ -414,7 +414,7 @@ if __name__ == "__main__":
         layout="vertical",  # horizontal unaligned
         # height=150,  # 500
         width=900,  # 900
-        allow_flagging=False,
+        allow_flagging=True,
         flagging_options=["fatal", "bug", "brainstorm", "excelsior", "paragon"],
         css=f"{css} {css_file}",
     )
