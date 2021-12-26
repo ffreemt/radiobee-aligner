@@ -46,11 +46,11 @@ def cmat2tset(
     """
     low_ = cmat.min() - 1
     argmax_max = []
-    src_len, tgt_len = cmat.shape
+    src_len, tgt_len = cmat.shape  # ylim, xlim
     for _ in range(min(src_len, tgt_len)):
         argmax = int(cmat.argmax())
         row, col = divmod(argmax, tgt_len)
-        argmax_max.append([col, row, cmat.max()])
+        argmax_max.append([col, row, cmat.max()])  # x-axis, y-axis
 
         # erase row-th row and col-th col of cmat
         cmat[row, :] = low_

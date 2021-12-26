@@ -12,5 +12,6 @@ seaborn
 cchardet
 tabulate
 git+https://github.com/ffreemt/fast-langid
-# dotenv
+# python-dotenv
 varname
+openpyxl
