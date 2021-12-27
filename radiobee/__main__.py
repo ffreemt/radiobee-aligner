@@ -322,6 +322,10 @@ if __name__ == "__main__":
         # df_aligned = df_trimmed
         df_aligned = pd.DataFrame(final_list, columns=["text1", "text2", "likelihood"])
 
+        # swap text1 text2
+        df_aligned = df_aligned[["text2", "text1", "likelihood"]]
+        df_aligned.columns = ["text1", "text2", "likelihood"]
+
         _ = df_aligned.to_csv(index=False)
         file_dl = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.csv")
         file_dl.write_text(_, encoding="utf8")
@@ -349,6 +353,7 @@ if __name__ == "__main__":
     article = dedent(
         """
         ## NB
+        * `radiobee aligner` is a sibling of `bumblebee aligner`. To know more about these aligners, please join qq group `316287378`.
         *   Click "Clear" first for subsequent submits when uploading files.
         *   `tf_type` `idf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
         *   Suggested `esp` and `min_samples` values -- `esp` (minimum epsilon): 8-12, `min_samples`: 4-8.

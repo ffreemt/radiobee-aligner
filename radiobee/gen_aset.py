@@ -7,7 +7,7 @@ from itertools import zip_longest
 
 # fmt: off
 def gen_aset(
-        pset: List[Tuple[int, int, float]],
+        pset: List[Tuple[Union[str, float], Union[str, float], Union[str, float]]],
         src_len: int,  # n_rows
         tgt_len: int,  # n_cols
 ) -> List[Tuple[Union[str, float], Union[str, float], Union[str, float]]]:

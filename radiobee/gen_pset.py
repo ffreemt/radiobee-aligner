@@ -19,7 +19,8 @@ def gen_pset(
     min_samples: int = 6,
     delta: float = 7,
     verbose: Union[bool, int] = False,
-) -> List[Tuple[int, int, Union[float, str]]]:
+    # ) -> List[Tuple[int, int, Union[float, str]]]:
+) -> List[Tuple[Union[float, str], Union[float, str], Union[float, str]]]:
     """Gen pset from cmat.
     Find pairs for a given cmat.
 
