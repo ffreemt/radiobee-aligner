@@ -330,6 +330,8 @@ if __name__ == "__main__":
         file_dl = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.csv")
         file_dl.write_text(_, encoding="utf8")
 
+        # file_dl.write_text(_, encoding="gb2312")  # no go
+
         file_dl_xlsx = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.xlsx")
         df_aligned.to_excel(file_dl_xlsx)
 
