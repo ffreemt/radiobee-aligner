@@ -355,7 +355,8 @@ if __name__ == "__main__":
     article = dedent(
         """
         ## NB
-        * `radiobee aligner` is a sibling of `bumblebee aligner`. To know more about these aligners, please join qq group `316287378`.
+        *   `radiobee aligner` is a sibling of `bumblebee aligner`. To know more about these aligners, please join qq group `316287378`.
+        *   Uploaded files should be in pure text format (txt, md, csv etc). `docx`, `pdf`, `srt`, `html` etc may be supported later on.
         *   Click "Clear" first for subsequent submits when uploading files.
         *   `tf_type` `idf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
         *   Suggested `esp` and `min_samples` values -- `esp` (minimum epsilon): 8-12, `min_samples`: 4-8.

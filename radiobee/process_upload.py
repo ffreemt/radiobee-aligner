@@ -29,6 +29,7 @@ def process_upload(upload: Union[tempfile._TemporaryFileWrapper, bytes]) -> str:
         ".txt",
         ".text",
         ".md",
+        "tsv",
     ]
     # check .txt .md ''(no suffix)
     if fpath.suffix.lower() not in suffixes:

@@ -89,11 +89,12 @@ def smatrix(
 
     # virtual_memory().available / 8: 64bits float
     require_ram = ilen(iter(doc1)) * ilen(iter(doc2)) * 8
-    if require_ram > virtual_memory().available:
-        logger.warning("virtual_memory().available: %s", virtual_memory().available)
+    if require_ram > virtual_memory().free:
+        # logger.warning("virtual_memory().free: %s", virtual_memory().available)
+        logger.warning("virtual_memory().free: %s", virtual_memory().free)
         logger.warning("memory required: %s", require_ram)
 
-    if require_ram > virtual_memory().available * 10:
+    if require_ram > virtual_memory().free * 10:
         logger.warning("You're likely to encounter memory problem, such as slowing down response and/or OOM.")
 
     # return dt1.doc(dt2.T)
