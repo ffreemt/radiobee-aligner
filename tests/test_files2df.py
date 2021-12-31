@@ -3,6 +3,7 @@ from pathlib import Path
 import tempfile
 from radiobee.files2df import files2df
 
+
 def test_files2df():
     """Test files2df with tests/test_en.txt tests/test_zh.txt."""
     file1_ = "tests/test_en.txt"
@@ -15,8 +16,12 @@ def test_files2df():
 
         df = files2df(file1, file2)
 
-    assert df.iloc[1, 0] == "Wuthering Heights"
-    assert df.iloc[1, 1] == "呼啸山庄"
+    # with filenames as frist row
+    # assert df.iloc[1, 0] == "Wuthering Heights"
+    # assert df.iloc[1, 1] == "呼啸山庄"
+
+    assert df.iloc[0, 0] == "Wuthering Heights"
+    assert df.iloc[0, 1] == "呼啸山庄"
 
 
 def test_files2df_file2none():
@@ -29,5 +34,9 @@ def test_files2df_file2none():
 
         df = files2df(file1, file2)
 
-    assert df.iloc[1, 0] == "Wuthering Heights"
-    assert df.iloc[1, 1] == ""
+    # with filename as first row
+    # assert df.iloc[1, 0] == "Wuthering Heights"
+    # assert df.iloc[1, 1] == ""
+
+    assert df.iloc[0, 0] == "Wuthering Heights"
+    assert df.iloc[0, 1] == ""

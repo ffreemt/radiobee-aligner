@@ -25,6 +25,7 @@ def files2df(file1, file2):
 
     return df
 
+
 _ = """
     # return tabulate(df)
     # return tabulate(df, tablefmt="grid")

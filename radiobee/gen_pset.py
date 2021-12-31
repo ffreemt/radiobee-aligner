@@ -13,7 +13,7 @@ from radiobee.cmat2tset import cmat2tset
 from radiobee.interpolate_pset import interpolate_pset
 
 
-def gen_pset(
+def _gen_pset(
     cmat1: Union[List[List[float]], np.ndarray, pd.DataFrame],
     eps: float = 10,
     min_samples: int = 6,
@@ -139,3 +139,36 @@ def gen_pset(
 
     # return [(1, 1, "")]
     return [(int(elm0), int(elm1), elm2) for elm0, elm1, elm2 in buff]
+
+
+def gen_pset(
+    cmat1: Union[List[List[float]], np.ndarray, pd.DataFrame],
+    eps: float = 10,
+    min_samples: int = 6,
+    delta: float = 7,
+    verbose: Union[bool, int] = False,
+) -> List[Tuple[Union[float, str], Union[float, str], Union[float, str]]]:
+    """Gen pset.
+
+    Refer to _gen_pset.
+    """
+    for min_s in range(min_samples):
+        logger.debug(" min_samples, try %s", min_samples - min_s)
+        try:
+            pset = _gen_pset(
+                cmat1,
+                eps=eps,
+                min_samples=min_samples - min_s,
+                delta=delta,
+            )
+            break
+        except ValueError:
+            logger.debug(" decrease min_samples by %s", min_s + 1)
+            continue
+        except Exception as e:
+            logger.error(e)
+            continue
+    else:
+        # break should happen above when min_samples = 2
+        raise Exception("bummer, this shouldn't happen, probably another bug")
+    return pset

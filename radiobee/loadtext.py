@@ -16,8 +16,7 @@ magic.from_file("testdata/test.pdf")
 original load_textrev
 refer to load_paras.py
 """
-from typing import Optional, Union
-import os
+from typing import Optional, Union  # noqa
 from pathlib import Path
 import cchardet
 
@@ -26,24 +25,11 @@ from logzero import logger
 # from detect_file import detect_file
 
 
-def loadtext(filepath: Union[Path, str] = "") -> Optional[str]:
+def loadtext(filepath: Union[Path, str] = "") -> str:
     """Load file context to text.
 
     Check encoding and load a file to text.
-
-    load_paras(filepath='') ==> paralist, lenlist =
     """
-    if not filepath:
-        defaultdir = r"C:\dl\Dropbox\shuangyu_ku\txt-books"
-        defaultfile = r"Folding_Beijing-en.txt"
-
-        # filepath = defaultfile
-        # defaultdir = r'C:\dl\Dropbox\mat-dir\snippets-mat\pyqt'
-        # defaultfile = r'notes pyqt tkinter tktable.txt'
-
-        filepath = os.path.join(defaultdir, defaultfile)
-        filepath = Path(defaultdir) / defaultfile
-
     filepath = Path(filepath)
     if not filepath.is_file():
         logger.error(" file [%s] does not exist or is not a file.", filepath)

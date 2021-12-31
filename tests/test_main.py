@@ -18,6 +18,7 @@ file2loc = "data/test_en.txt"
 file1 = tempfile._TemporaryFileWrapper(open(file1loc, "rb"), file1loc)
 file2 = tempfile._TemporaryFileWrapper(open(file2loc, "rb"), file2loc)
 
+
 def test_file2file1():
     """Test cmat file2 file1."""
     # logger.info("file1: *%s*, file2: *%s*", file1, file2)

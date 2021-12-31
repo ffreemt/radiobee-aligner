@@ -1,16 +1,17 @@
 """Run interactively."""
+# pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, wrong-import-position, too-many-locals, too-many-statements
 from typing import Tuple  # , Optional
 
-
+import sys
 from pathlib import Path
-import joblib
+import signal
 from random import randint
 from textwrap import dedent
 from itertools import zip_longest
-from sklearn.cluster import DBSCAN
-
 from socket import socket, AF_INET, SOCK_STREAM
-import signal
+
+from sklearn.cluster import DBSCAN
+import joblib
 from varname import nameof
 from logzero import logger
 
@@ -22,6 +23,8 @@ import matplotlib.pyplot as plt
 # from tabulate import tabulate
 from fastlid import fastlid
 
+if "." not in sys.path:
+    sys.path.insert(0, ".")
 import gradio as gr
 from radiobee.process_upload import process_upload
 from radiobee.files2df import files2df
@@ -43,6 +46,7 @@ print("Press Ctrl+C to quit\n")
 
 
 def savelzma(obj, fileloc: str = None):
+    """Aux funciton."""
     if fileloc is None:
         fileloc = nameof(obj)  # this wont work
     joblib.dump(obj, f"data/{fileloc}.lzma")
@@ -55,6 +59,7 @@ def greet(input):
 
 def upfile1(file1, file2=None) -> Tuple[str, str]:
     """Upload file1, file2."""
+    del file2
     return file1.name, f"'Sup yo! (your input: {input})"
 
 
@@ -245,6 +250,11 @@ if __name__ == "__main__":
         sns.set()
         sns.set_style("darkgrid")
 
+        # close all existing figures, necesssary for hf spaces
+        plt.close("all")
+        # if sys.platform not in ["win32", "linux"]:
+        plt.switch_backend('Agg')  # to cater for Mac, thanks to WhiteFox
+
         fig = plt.figure()
         gs = fig.add_gridspec(2, 2, wspace=0.4, hspace=0.58)
         ax2 = fig.add_subplot(gs[0, 0])
@@ -260,7 +270,8 @@ if __name__ == "__main__":
         fig.suptitle("alignment projection")
 
         _ = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ > -1
-        _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
+        # _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
+        _x = ~_
 
         df_.plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax0)
 
@@ -309,12 +320,28 @@ if __name__ == "__main__":
         )
 
         # process lst1, lst2 to obtained df_aligned
-        pset = gen_pset(
-            cmat,
-            eps=eps,
-            min_samples=min_samples,
-            delta=7,
-        )
+        # quick fix ValueError: not enough values to unpack (expected at least 1, got 0)
+        # fixed in gen_pet, but we leave the loop here
+        for min_s in range(min_samples):
+            logger.info(" min_samples, try %s", min_samples - min_s)
+            try:
+                pset = gen_pset(
+                    cmat,
+                    eps=eps,
+                    min_samples=min_samples - min_s,
+                    delta=7,
+                )
+                break
+            except ValueError:
+                logger.info(" decrease min_samples by %s", min_s + 1)
+                continue
+            except Exception as e:
+                logger.error(e)
+                continue
+        else:
+            # break should happen above when min_samples = 2
+            raise Exception("bummer, this shouldn't happen, probably another bug")
+
         src_len, tgt_len = cmat.shape
         aset = gen_aset(pset, src_len, tgt_len)
         final_list = align_texts(aset, lst2, lst1)  # note the order
@@ -360,7 +387,10 @@ if __name__ == "__main__":
         *   Click "Clear" first for subsequent submits when uploading files.
         *   `tf_type` `idf_type` `dl_type` `norm`: Normally there is no need to touch these unless you know what you are doing.
         *   Suggested `esp` and `min_samples` values -- `esp` (minimum epsilon): 8-12, `min_samples`: 4-8.
-           -   Smaller larger `esp` or `min_samples` will result in more aligned pairs but also more **false positives** (pairs falsely identified as candidates). On the other hand, larger smaller `esp` or `min_samples` values tend to miss 'good' pairs.
+           -   Smaller larger `esp` or `min_samples` will result in more aligned pairs but also more **false positives** (pairs
+           falsely identified as candidates). On the other hand,
+           larger smaller `esp` or `min_samples` values tend to miss
+           'good' pairs.
         *   If you need to have a better look at the image, you can right-click on the image and select copy-image-address and open a new tab in the browser with the copied image address.
         *   `Flag`: Should something go wrong, you can click Flag to save the output and inform the developer.
     """
