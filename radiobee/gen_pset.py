@@ -152,6 +152,7 @@ def gen_pset(
 
     Refer to _gen_pset.
     """
+    gen_pset.min_samples = min_samples
     for min_s in range(min_samples):
         logger.debug(" min_samples, try %s", min_samples - min_s)
         try:
@@ -171,4 +172,8 @@ def gen_pset(
     else:
         # break should happen above when min_samples = 2
         raise Exception("bummer, this shouldn't happen, probably another bug")
+
+    # store new min_samples
+    gen_pset.min_samples = min_samples - min_s
+
     return pset

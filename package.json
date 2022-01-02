@@ -8,7 +8,7 @@
   },
   "scripts": {
     "pyright": "pyright",
-    "flake8": "flake8.bat",
+    "flake8": "flake8",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -10,7 +10,7 @@ from textwrap import dedent
 from itertools import zip_longest
 from socket import socket, AF_INET, SOCK_STREAM
 
-from sklearn.cluster import DBSCAN
+from sklearn.cluster import DBSCAN  # noqa
 import joblib
 from varname import nameof
 from logzero import logger
@@ -18,7 +18,8 @@ from logzero import logger
 # import numpy as np
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
+
+import matplotlib.pyplot as plt  # noqa
 
 # from tabulate import tabulate
 from fastlid import fastlid
@@ -34,8 +35,11 @@ from radiobee.gen_pset import gen_pset
 from radiobee.gen_aset import gen_aset
 from radiobee.align_texts import align_texts
 
-# from radiobee.plot_df import plot_df
 from radiobee.cmat2tset import cmat2tset
+
+# from radiobee.plot_df import plot_df
+# from radiobee.plot_cmat import plot_cmat
+from radiobee.trim_df import trim_df
 
 sns.set()
 sns.set_style("darkgrid")
@@ -91,8 +95,12 @@ if __name__ == "__main__":
     ]
     outputs = ["dataframe"]
     # """
-    # import logzero
-    # logzero.loglevel(10)
+    import logzero
+
+    # debug = True
+    debug = False
+    if debug:
+        logzero.loglevel(10)
     logger.debug(" debug ")
     logger.info(" info ")
 
@@ -119,9 +127,15 @@ if __name__ == "__main__":
         x min_df: int | float = 1
         x max_df: int | float = 1.0
     # """
-    input_tf_type = gr.inputs.Dropdown(["linear", "sqrt", "log", "binary"], default="linear")
-    input_idf_type = gr.inputs.Radio(["None", "standard", "smooth", "bm25"], default="None")  # need to convert "None" this to None in fn
-    input_dl_type = gr.inputs.Radio(["None", "linear", "sqrt", "log"], default="None")  # ditto
+    input_tf_type = gr.inputs.Dropdown(
+        ["linear", "sqrt", "log", "binary"], default="linear"
+    )
+    input_idf_type = gr.inputs.Radio(
+        ["None", "standard", "smooth", "bm25"], default="None"
+    )  # need to convert "None" this to None in fn
+    input_dl_type = gr.inputs.Radio(
+        ["None", "linear", "sqrt", "log"], default="None"
+    )  # ditto
     input_norm_type = gr.inputs.Radio(["None", "l1", "l2"], default="None")  # ditto
 
     inputs = [
@@ -147,12 +161,76 @@ if __name__ == "__main__":
 
     # modi
     examples = [
-        ["data/test_zh.txt", "data/test_en.txt", "linear", "None", "None", "None", 10, 6, ],
-        ["data/test_en.txt", "data/test_zh.txt", "linear", "None", "None", "None", 10, 6, ],
-        ["data/shakespeare_zh500.txt", "data/shakespeare_en500.txt", "linear", "None", "None", "None", 10, 6, ],
-        ["data/shakespeare_en500.txt", "data/shakespeare_zh500.txt", "linear", "None", "None", "None", 10, 6, ],
-        ["data/hlm-ch1-zh.txt", "data/hlm-ch1-en.txt", "linear", "None", "None", "None", 10, 6, ],
-        ["data/hlm-ch1-en.txt", "data/hlm-ch1-zh.txt", "linear", "None", "None", "None", 10, 6, ],
+        [
+            "data/test_zh.txt",
+            "data/test_en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/test_en.txt",
+            "data/test_zh.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/shakespeare_zh500.txt",
+            "data/shakespeare_en500.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/shakespeare_en500.txt",
+            "data/shakespeare_zh500.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/hlm-ch1-zh.txt",
+            "data/hlm-ch1-en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/hlm-ch1-en.txt",
+            "data/hlm-ch1-zh.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/ps-cn.txt",
+            "data/ps-en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            4,
+        ],
     ]
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
@@ -227,8 +305,8 @@ if __name__ == "__main__":
 
         lst1 = [elm for elm in df1.text1 if elm]
         lst2 = [elm for elm in df1.text2 if elm]
-        len1 = len(lst1)
-        len2 = len(lst2)
+        # len1 = len(lst1)  # noqa
+        # len2 = len(lst2)  # noqa
 
         cmat = lists2cmat(
             lst1,
@@ -242,66 +320,8 @@ if __name__ == "__main__":
         tset = pd.DataFrame(cmat2tset(cmat))
         tset.columns = ["x", "y", "cos"]
 
-        df_ = tset
-
-        xlabel: str = lang1
-        ylabel: str = lang2
-
-        sns.set()
-        sns.set_style("darkgrid")
-
-        # close all existing figures, necesssary for hf spaces
-        plt.close("all")
-        # if sys.platform not in ["win32", "linux"]:
-        plt.switch_backend('Agg')  # to cater for Mac, thanks to WhiteFox
-
-        fig = plt.figure()
-        gs = fig.add_gridspec(2, 2, wspace=0.4, hspace=0.58)
-        ax2 = fig.add_subplot(gs[0, 0])
-        ax0 = fig.add_subplot(gs[0, 1])
-        ax1 = fig.add_subplot(gs[1, 0])
-
-        cmap = "viridis_r"
-        sns.heatmap(cmat, cmap=cmap, ax=ax2).invert_yaxis()
-        ax2.set_xlabel(xlabel)
-        ax2.set_ylabel(ylabel)
-        ax2.set_title("cos similarity heatmap")
-
-        fig.suptitle("alignment projection")
-
-        _ = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ > -1
-        # _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
-        _x = ~_
-
-        df_.plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax0)
-
-        # clustered
-        df_[_].plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax1)
-
-        # outliers
-        df_[_x].plot.scatter("x", "y", c="r", marker="x", alpha=0.6, ax=ax0)
-
-        # ax0.set_xlabel("")
-        # ax0.set_ylabel("zh")
-        ax0.set_xlabel(xlabel)
-        ax0.set_ylabel(ylabel)
-
-        ax0.set_xlim(0, len1)
-        ax0.set_ylim(0, len2)
-        ax0.set_title("max along columns ('x': outliers)")
-
-        # ax1.set_xlabel("en")
-        # ax1.set_ylabel("zh")
-        ax1.set_xlabel(xlabel)
-        ax1.set_ylabel(ylabel)
-
-        ax1.set_xlim(0, len1)
-        ax1.set_ylim(0, len2)
-        ax1.set_title(f"potential aligned pairs ({round(sum(_) / len1, 2):.0%})")
-
-        # return df, plot_df(pd.DataFrame(cmat))
-        # tset.plot.scatter("x", "y", c="cos", cmap="viridis_r")
-
+        df_trimmed = trim_df(df1)
+        _ = """
         df_trimmed = pd.concat(
             [
                 df1.iloc[:4, :],
@@ -318,12 +338,13 @@ if __name__ == "__main__":
             ],
             ignore_index=1,
         )
+        # """
 
         # process lst1, lst2 to obtained df_aligned
         # quick fix ValueError: not enough values to unpack (expected at least 1, got 0)
         # fixed in gen_pet, but we leave the loop here
         for min_s in range(min_samples):
-            logger.info(" min_samples, try %s", min_samples - min_s)
+            logger.info(" min_samples, using %s", min_samples - min_s)
             try:
                 pset = gen_pset(
                     cmat,
@@ -342,6 +363,89 @@ if __name__ == "__main__":
             # break should happen above when min_samples = 2
             raise Exception("bummer, this shouldn't happen, probably another bug")
 
+        min_samples = gen_pset.min_samples
+
+        # will result in error message:
+        # UserWarning: Starting a Matplotlib GUI outside of
+        # the main thread will likely fail."
+        _ = """
+        plot_cmat(
+            cmat,
+            eps=eps,
+            min_samples=min_samples,
+            xlabel=lang1,
+            ylabel=lang2,
+        )
+        # """
+
+        # move plot_cmat's code to the main thread here
+        # to make it work
+        xlabel = lang1
+        ylabel = lang2
+
+        len1, len2 = cmat.shape
+        ylim, xlim = len1, len2
+
+        # does not seem to show up
+        logger.debug(" len1 (ylim): %s, len2 (xlim): %s", len1, len2)
+        if debug:
+            print(f" len1 (ylim): {len1}, len2 (xlim): {len2}")
+
+        df_ = pd.DataFrame(cmat2tset(cmat))
+        df_.columns = ["x", "y", "cos"]
+
+        sns.set()
+        sns.set_style("darkgrid")
+
+        # close all existing figures, necesssary for hf spaces
+        plt.close("all")
+        # if sys.platform not in ["win32", "linux"]:
+        plt.switch_backend('Agg')  # to cater for Mac, thanks to WhiteFox
+
+        # figsize=(13, 8), (339, 212) mm on '1280x800+0+0'
+        fig = plt.figure(figsize=(13, 8))
+
+        # gs = fig.add_gridspec(2, 2, wspace=0.4, hspace=0.58)
+        gs = fig.add_gridspec(1, 2, wspace=0.4, hspace=0.58)
+        ax_heatmap = fig.add_subplot(gs[0, 0])  # ax2
+        ax0 = fig.add_subplot(gs[0, 1])
+        # ax1 = fig.add_subplot(gs[1, 0])
+
+        cmap = "viridis_r"
+        sns.heatmap(cmat, cmap=cmap, ax=ax_heatmap).invert_yaxis()
+        ax_heatmap.set_xlabel(xlabel)
+        ax_heatmap.set_ylabel(ylabel)
+        ax_heatmap.set_title("cos similarity heatmap")
+
+        fig.suptitle(f"alignment projection\n(eps={eps}, min_samples={min_samples})")
+
+        _ = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ > -1
+        # _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
+        _x = ~_
+
+        # max cos along columns
+        df_.plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax0)
+
+        # outliers
+        df_[_x].plot.scatter("x", "y", c="r", marker="x", alpha=0.6, ax=ax0)
+        ax0.set_xlabel(xlabel)
+        ax0.set_ylabel(ylabel)
+        ax0.set_xlim(xmin=0, xmax=xlim)
+        ax0.set_ylim(ymin=0, ymax=ylim)
+        ax0.set_title(
+            "max along columns ('x': outliers)\n"
+            "potential aligned pairs (green line)\n"
+            f"({round(sum(_) / xlim, 2):.0%})"
+        )
+
+        # clustered
+        # df_[_].plot.scatter("x", "y", c="cos", cmap=cmap, ax=ax1)
+        # ax1.set_xlabel(xlabel)
+        # ax1.set_ylabel(ylabel)
+        # ax1.set_xlim(0, len1)
+        # ax1.set_title(f"potential aligned pairs ({round(sum(_) / len1, 2):.0%})")
+        # end of plot_cmat
+
         src_len, tgt_len = cmat.shape
         aset = gen_aset(pset, src_len, tgt_len)
         final_list = align_texts(aset, lst2, lst1)  # note the order
@@ -359,7 +463,9 @@ if __name__ == "__main__":
 
         # file_dl.write_text(_, encoding="gb2312")  # no go
 
-        file_dl_xlsx = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.xlsx")
+        file_dl_xlsx = Path(
+            f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.xlsx"
+        )
         df_aligned.to_excel(file_dl_xlsx)
 
         # return df_trimmed, plt
@@ -395,10 +501,13 @@ if __name__ == "__main__":
         *   `Flag`: Should something go wrong, you can click Flag to save the output and inform the developer.
     """
     )
-    css = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
-    css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
-    css_file = (
-        ".input_file, .output_file {height: 9rem !important; width: 100% !important;}"
+    css_image = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
+    # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
+    css_input_file = (
+        ".input_file, {height: 9rem !important; width: 100% !important;}"
+    )
+    css_output_file = (
+        ".output_file , {height: 4rem !important; width: 100% !important;}"
     )
 
     logger.info("running at port %s", server_port)
@@ -424,15 +533,21 @@ if __name__ == "__main__":
         # height=150,  # 500
         width=900,  # 900
         allow_flagging=True,
-        flagging_options=["fatal", "bug", "brainstorm", "excelsior", ],  # "paragon"],
-        css=f"{css} {css_file}",
+        flagging_options=[
+            "fatal",
+            "bug",
+            "brainstorm",
+            "excelsior",
+        ],  # "paragon"],
+        css=f"{css_image} {css_input_file} {css_output_file}",
     )
 
     iface.launch(
-        # share=False,
-        share=True,
-        debug=True,
-        server_name="0.0.0.0",
+        share=False,
+        # share=True,
+        debug=debug,
+        # server_name="0.0.0.0",
+        server_name="127.0.0.1",
         server_port=server_port,
         # show_tips=True,
         enable_queue=True,
