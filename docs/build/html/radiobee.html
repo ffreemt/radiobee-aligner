@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>radiobee package &mdash; radiobee 0.1.0beta2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> radiobee
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">radiobee package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#radiobee-align-sents-module">radiobee.align_sents module</a></li>
+<li><a class="reference internal" href="#radiobee-align-texts-module">radiobee.align_texts module</a></li>
+<li><a class="reference internal" href="#radiobee-amend-avec-module">radiobee.amend_avec module</a></li>
+<li><a class="reference internal" href="#radiobee-app-module">radiobee.app module</a></li>
+<li><a class="reference internal" href="#radiobee-cmat2tset-module">radiobee.cmat2tset module</a></li>
+<li><a class="reference internal" href="#radiobee-docterm-scores-module">radiobee.docterm_scores module</a></li>
+<li><a class="reference internal" href="#radiobee-en2zh-module">radiobee.en2zh module</a></li>
+<li><a class="reference internal" href="#radiobee-en2zh-tokens-module">radiobee.en2zh_tokens module</a></li>
+<li><a class="reference internal" href="#radiobee-file2text-module">radiobee.file2text module</a></li>
+<li><a class="reference internal" href="#radiobee-files2df-module">radiobee.files2df module</a></li>
+<li><a class="reference internal" href="#radiobee-gen-aset-module">radiobee.gen_aset module</a></li>
+<li><a class="reference internal" href="#radiobee-gen-eps-minsamples-module">radiobee.gen_eps_minsamples module</a></li>
+<li><a class="reference internal" href="#radiobee-gen-model-module">radiobee.gen_model module</a></li>
+<li><a class="reference internal" href="#radiobee-gen-pset-module">radiobee.gen_pset module</a></li>
+<li><a class="reference internal" href="#radiobee-gen-row-alignment-module">radiobee.gen_row_alignment module</a></li>
+<li><a class="reference internal" href="#radiobee-insert-spaces-module">radiobee.insert_spaces module</a></li>
+<li><a class="reference internal" href="#radiobee-interpolate-pset-module">radiobee.interpolate_pset module</a></li>
+<li><a class="reference internal" href="#radiobee-lists2cmat-module">radiobee.lists2cmat module</a></li>
+<li><a class="reference internal" href="#radiobee-loadtext-module">radiobee.loadtext module</a></li>
+<li><a class="reference internal" href="#radiobee-mdx-e2c-module">radiobee.mdx_e2c module</a></li>
+<li><a class="reference internal" href="#radiobee-plot-cmat-module">radiobee.plot_cmat module</a></li>
+<li><a class="reference internal" href="#radiobee-plot-df-module">radiobee.plot_df module</a></li>
+<li><a class="reference internal" href="#radiobee-process-upload-module">radiobee.process_upload module</a></li>
+<li><a class="reference internal" href="#radiobee-seg-text-module">radiobee.seg_text module</a></li>
+<li><a class="reference internal" href="#radiobee-shuffle-sents-module">radiobee.shuffle_sents module</a></li>
+<li><a class="reference internal" href="#radiobee-smatrix-module">radiobee.smatrix module</a></li>
+<li><a class="reference internal" href="#radiobee-trim-df-module">radiobee.trim_df module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radiobee</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>radiobee package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/radiobee.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="radiobee-package">
+<h1>radiobee package<a class="headerlink" href="#radiobee-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-align-sents-module">
+<h2>radiobee.align_sents module<a class="headerlink" href="#radiobee-align-sents-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-align-texts-module">
+<h2>radiobee.align_texts module<a class="headerlink" href="#radiobee-align-texts-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-amend-avec-module">
+<h2>radiobee.amend_avec module<a class="headerlink" href="#radiobee-amend-avec-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-app-module">
+<h2>radiobee.app module<a class="headerlink" href="#radiobee-app-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-cmat2tset-module">
+<h2>radiobee.cmat2tset module<a class="headerlink" href="#radiobee-cmat2tset-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-docterm-scores-module">
+<h2>radiobee.docterm_scores module<a class="headerlink" href="#radiobee-docterm-scores-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-en2zh-module">
+<h2>radiobee.en2zh module<a class="headerlink" href="#radiobee-en2zh-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-en2zh-tokens-module">
+<h2>radiobee.en2zh_tokens module<a class="headerlink" href="#radiobee-en2zh-tokens-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-file2text-module">
+<h2>radiobee.file2text module<a class="headerlink" href="#radiobee-file2text-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-files2df-module">
+<h2>radiobee.files2df module<a class="headerlink" href="#radiobee-files2df-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-gen-aset-module">
+<h2>radiobee.gen_aset module<a class="headerlink" href="#radiobee-gen-aset-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-gen-eps-minsamples-module">
+<h2>radiobee.gen_eps_minsamples module<a class="headerlink" href="#radiobee-gen-eps-minsamples-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-gen-model-module">
+<h2>radiobee.gen_model module<a class="headerlink" href="#radiobee-gen-model-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-gen-pset-module">
+<h2>radiobee.gen_pset module<a class="headerlink" href="#radiobee-gen-pset-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-gen-row-alignment-module">
+<h2>radiobee.gen_row_alignment module<a class="headerlink" href="#radiobee-gen-row-alignment-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-insert-spaces-module">
+<h2>radiobee.insert_spaces module<a class="headerlink" href="#radiobee-insert-spaces-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-interpolate-pset-module">
+<h2>radiobee.interpolate_pset module<a class="headerlink" href="#radiobee-interpolate-pset-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-lists2cmat-module">
+<h2>radiobee.lists2cmat module<a class="headerlink" href="#radiobee-lists2cmat-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-loadtext-module">
+<h2>radiobee.loadtext module<a class="headerlink" href="#radiobee-loadtext-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-mdx-e2c-module">
+<h2>radiobee.mdx_e2c module<a class="headerlink" href="#radiobee-mdx-e2c-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-plot-cmat-module">
+<h2>radiobee.plot_cmat module<a class="headerlink" href="#radiobee-plot-cmat-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-plot-df-module">
+<h2>radiobee.plot_df module<a class="headerlink" href="#radiobee-plot-df-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-process-upload-module">
+<h2>radiobee.process_upload module<a class="headerlink" href="#radiobee-process-upload-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-seg-text-module">
+<h2>radiobee.seg_text module<a class="headerlink" href="#radiobee-seg-text-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-shuffle-sents-module">
+<h2>radiobee.shuffle_sents module<a class="headerlink" href="#radiobee-shuffle-sents-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-smatrix-module">
+<h2>radiobee.smatrix module<a class="headerlink" href="#radiobee-smatrix-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="radiobee-trim-df-module">
+<h2>radiobee.trim_df module<a class="headerlink" href="#radiobee-trim-df-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, mu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

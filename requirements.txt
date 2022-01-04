@@ -16,3 +16,10 @@ git+https://github.com/ffreemt/fast-langid
 # python-dotenv
 varname
 openpyxl
+# --- seg_text
+Morfessor
+pyicu
+pycld2
+tqdm
+polyglot
+sentence_splitter
