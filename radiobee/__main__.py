@@ -1,6 +1,6 @@
 """Run interactively."""
 # pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, wrong-import-position, too-many-locals, too-many-statements
-from typing import Tuple  # , Optional
+from typing import Any, Tuple, Optional  # noqa
 
 import sys
 from pathlib import Path
@@ -85,6 +85,21 @@ def process_2upoads(file1, file2):
     return df
 
 
+def error_msg(
+    msg: Optional[str],
+    title: str = "error message",
+) -> Tuple[Any, None, None, None, None]:
+    """Prepare error message for fn outputs."""
+    if msg is None:
+        msg = "none..."
+    else:
+        msg = str(msg)
+
+    df = pd.DataFrame([msg[:300], columns=[title])
+
+    return (df, *((None,) * 4))
+
+
 if __name__ == "__main__":
     _ = """
     fn = process_2upoads
@@ -115,7 +130,7 @@ if __name__ == "__main__":
     inputs = [
         gr.inputs.File(label="file 1"),
         # gr.inputs.File(file_count="multiple", label="file 2", optional=True),
-        gr.inputs.File(label="file 2 (if empty, radiobee will attempt to separate file 1 to two)", optional=True),
+        gr.inputs.File(label="file 2", optional=True),
     ]
 
     # modi 1
@@ -140,7 +155,7 @@ if __name__ == "__main__":
 
     inputs = [
         gr.inputs.File(label="file 1"),
-        gr.inputs.File(label="file 2", optional=True),
+        gr.inputs.File(label="file 2 (if empty, radiobee will attempt to separate file 1 to two)", optional=True),
         input_tf_type,  # modi inputs
         input_idf_type,
         input_dl_type,
@@ -159,7 +174,6 @@ if __name__ == "__main__":
         ),
     ]
 
-    # modi
     examples = [
         [
             "data/test_zh.txt",
@@ -242,6 +256,9 @@ if __name__ == "__main__":
             6,
         ],
     ]
+
+    # modi examples setup
+
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
     outputs = ["dataframe", "plot"]
@@ -302,7 +319,10 @@ if __name__ == "__main__":
                 _ = None
 
         # logger.info("file1: *%s*, file2: *%s*", file1, file2)
-        logger.info("file1.name: *%s*, file2.name: *%s*", file1.name, file2.name)
+        if file2 is not None:
+            logger.info("file1.name: *%s*, file2.name: *%s*", file1.name, file2.name)
+        else:
+            logger.info("file1.name: *%s*, file2: *%s*", file1.name, file2)
 
         # bypass if file1 or file2 is str input
         # if not (isinstance(file1, str) or isinstance(file2, str)):
@@ -312,11 +332,19 @@ if __name__ == "__main__":
             logger.debug("file2 is None")
             text2 = ""
 
-            # split text1 to text1 and text2
-
+            # TODO split text1 to text1 and text2
         else:
-            logger.debug("file2.name ", file2.name)
+            logger.debug("file2.name: %s", file2.name)
             text2 = file2text(file2)
+
+        if not text1 or not text2:
+            msg = (
+                "one of the files is empty: "
+                f"text1[:10]: [{text1[:10]}], text2[:10]: [{text2[:10]}]"
+            )
+            # return (pd.DataFrame([msg], columns=['error message']), *((None,) * 4))
+            return error_msg(msg)
+
         lang1, _ = fastlid(text1)
         lang2, _ = fastlid(text2)
 
@@ -523,19 +551,17 @@ if __name__ == "__main__":
     ).strip()
     article = dedent(
         """
-        [https://radiobee.readthedocs.io/](https://radiobee.readthedocs.io/)
-
-        [中文使用说明](https://radiobee.readthedocs.io/en/latest/userguide-zh.html#)
+        [[https://radiobee.readthedocs.io/](https://radiobee.readthedocs.io/)] [[中文使用说明](https://radiobee.readthedocs.io/en/latest/userguide-zh.html#)]
         """
     ).strip()
 
     css_image = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
     # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
     css_input_file = (
-        ".input_file, {height: 9rem !important; width: 100% !important;}"
+        ".input_file {height: 9rem !important; width: 100% !important;}"
     )
     css_output_file = (
-        ".output_file , {height: 4rem !important; width: 100% !important;}"
+        ".output_file {height: 4rem !important; width: 100% !important;}"
     )
 
     logger.info("running at port %s", server_port)
@@ -578,7 +604,7 @@ if __name__ == "__main__":
         # show_tips=True,
         enable_queue=True,
         # height=150,  # 500
-        # width=900,  # 900
+        width=900,  # 900
     )
 
 _ = """

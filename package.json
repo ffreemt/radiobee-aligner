@@ -8,6 +8,7 @@
   },
   "scripts": {
     "pyright": "pyright",
+    "pyright-radiobee": "pyright radiobee",
     "flake8": "flake8",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
