@@ -557,9 +557,9 @@ if __name__ == "__main__":
     # "<p style='text-align: center'><a href='https://arxiv.org/abs/2112.11641' target='_blank'>JoJoGAN: One Shot Face Stylization</a>| <a href='https://github.com/mchong6/JoJoGAN' target='_blank'>Github Repo Pytorch</a></p> <center><img src='https://visitor-badge.glitch.me/badge?page_id=akhaliq_jojogan' alt='visitor badge'></center> <p style='text-align: center'>samples from repo: <img src='https://raw.githubusercontent.com/mchong6/JoJoGAN/main/teaser.jpg' alt='animation'/></p>"  # noqa
 
     article = dedent(
-        """ <p style="text-align: center">
+        """ <p style="text-align: center">readiobee docs:
         <a href="https://radiobee.readthedocs.io/" target="_blank">readthedocs</a>
-         or <a href="https://radiobee.readthedocs.io/en/latest/userguide-zh.html#" target="_blank">中文使用说明</a>
+         or in Chinese but rather short <a href="https://radiobee.readthedocs.io/en/latest/userguide-zh.html#" target="_blank">中文使用说明</a>
         </p>
         """
     ).strip()
@@ -567,7 +567,7 @@ if __name__ == "__main__":
     css_image = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
     # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
     css_input_file = (
-        ".input_file {height: 9rem !important; width: 100% !important;}"
+        ".input_file {height: 8rem !important; width: 100% !important;}"
     )
     css_output_file = (
         ".output_file {height: 4rem !important; width: 100% !important;}"
@@ -607,8 +607,8 @@ if __name__ == "__main__":
         share=False,
         # share=True,
         debug=debug,
-        # server_name="0.0.0.0",
-        server_name="127.0.0.1",
+        server_name="0.0.0.0",
+        # server_name="127.0.0.1",
         server_port=server_port,
         # show_tips=True,
         enable_queue=True,
