@@ -13,6 +13,11 @@ def gen_vector(text: str, model: Vectorizer) -> List[float]:
 
     Args:
         text: string of Chinese chars or English words.
+        
+    filename = r"data\test-dual.txt"
+    text = loadtext(filename)
+    list1, list2 = zip(*text2lists(text))
+    model = gen_model(list1)
     """
     vec = insert_spaces(text).split()
 

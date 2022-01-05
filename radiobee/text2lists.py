@@ -19,7 +19,7 @@ def text2lists(text: Union[Iterable[str], str]) -> List[Tuple[str, str]]:
     fastlid.set_languages = set_languages
     list1 = []
     list2 = []  # for determining en-zh or zh-en
-    lang0 = fastlid(text[:15000])
+    lang0, _ = fastlid(text[:15000])
     res = ""
     left = False  # start with left list1
 

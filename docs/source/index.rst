@@ -12,7 +12,6 @@ Welcome to radiobee's documentation!
 
    intro
    radiobee
-   modules
    examples
 
 Indices and tables
