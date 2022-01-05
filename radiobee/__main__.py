@@ -251,7 +251,7 @@ if __name__ == "__main__":
         ],
         [
             "data/test-dual.txt",
-            None,
+            "data/empty.txt",
             "linear",
             "None",
             "None",
