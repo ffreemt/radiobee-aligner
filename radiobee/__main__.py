@@ -159,7 +159,7 @@ if __name__ == "__main__":
 
     inputs = [
         gr.inputs.File(label="file 1"),
-        gr.inputs.File(label="file 2 (if empty, radiobee will attempt to separate file 1 to two)", optional=True),
+        gr.inputs.File(label="file 2", optional=True),
         input_tf_type,  # modi inputs
         input_idf_type,
         input_dl_type,
