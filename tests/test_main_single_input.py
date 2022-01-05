@@ -15,6 +15,7 @@ from radiobee.cmat2tset import cmat2tset
 
 file1loc = "data/test-dual.txt"
 file2loc = ""
+file2loc = "data/empty.txt"
 
 file1 = tempfile._TemporaryFileWrapper(open(file1loc, "rb"), file1loc)
 if file2loc:

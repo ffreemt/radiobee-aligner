@@ -42,7 +42,13 @@ def process_upload(upload: Union[tempfile._TemporaryFileWrapper, bytes]) -> str:
         logger.error("Unable to read data from %s, errors: %s", fpath, e)
         data = str(e).encode()
 
-    encoding = cchardet.detect(data).get("encoding", "utf8")
+    # no data, empty file, return ""
+    if not data:
+        logger.info("empty file: %s", upload.name)
+        return ""
+
+    encoding = cchardet.detect(data).get("encoding")
+
     if encoding is not None:
         try:
             text = fpath.read_text(encoding)
@@ -59,9 +65,11 @@ def process_upload(upload: Union[tempfile._TemporaryFileWrapper, bytes]) -> str:
 
     # TODO
 
-    # return f"{upload.name} {type(upload)}\n\n..."
-    # return f"{upload.name}\n..."
-    return f"{upload.name}"
+    _ = Path(upload.name)
+    msg = f"binary file: {_.stem[:-8]}{_.suffix}"
+    logger.warning("%s", msg)
+
+    return msg
 
 
 _ = '''  # colab gradio-file-inputs-upload.ipynb
