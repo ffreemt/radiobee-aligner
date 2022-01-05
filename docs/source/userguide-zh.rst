@@ -1,7 +1,7 @@
 使用说明
 ----------
 
--   ``radiobee aligner`` 是 ``bumblebee aligner`` 的孪生兄弟。请加入qq群 ``316287378`` 了解这些对齐工具.
+-   ``radiobee aligner`` 是 ``bumblebee aligner`` 的孪生兄弟。请加入qq群 ``316287378`` 了解这些对齐工具。
 
 -  ``radiobee`` 目前仅支持中英、英中对齐。
 -  ``radiobee`` 目前仅支持纯文本文件上载 (txt, md, csv 等)。 以后可能会支持 ``docx``, ``pdf``, ``srt``, ``html`` 等格式。
