@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Examples &mdash; radiobee 0.1.0beta2 documentation</title>
+  <title>使用说明 &mdash; radiobee 0.1.0beta2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="radiobee package" href="radiobee.html" />
+    <link rel="next" title="Examples" href="examples.html" />
     <link rel="prev" title="How to use" href="userguide.html" /> 
 </head>
 
@@ -41,10 +41,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="userguide.html">How to use</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation-usage">Installation/Usage:</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="radiobee.html">radiobee package</a></li>
 </ul>
 
@@ -62,9 +60,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Examples</li>
+      <li>使用说明</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/userguide-zh.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,14 +70,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">radiobee</span></code> has in-built examples. Just click one of the rows in the <code class="docutils literal notranslate"><span class="pre">Examples</span></code> table and click <code class="docutils literal notranslate"><span class="pre">Submit</span></code> to testrun.</p>
-<section id="installation-usage">
-<h2>Installation/Usage:<a class="headerlink" href="#installation-usage" title="Permalink to this headline"></a></h2>
-<p>As the package has not been published on PyPi yet, it CANNOT be install using pip.</p>
-<p>For now, the suggested method is to download the zipped package or use the online version at  <cite>https://huggingface.co/spaces/mikeee/radiobee-aligner/  &lt;https://huggingface.co/spaces/mikeee/radiobee-aligner/&gt;</cite></p>
-</section>
+  <section id="id1">
+<h1>使用说明<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radiobee</span> <span class="pre">aligner``是``bumblebee</span></code> aligner`的孪生兄弟。请加入qq群`316287378`了解这些对齐工具.</p></li>
+<li><p><a href="#id2"><span class="problematic" id="id3">``</span></a>radiobee``目前仅支持中英、英中对齐。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radiobee``目前仅支持纯文本文件上载</span> <span class="pre">(txt,</span> <span class="pre">md,</span> <span class="pre">csv</span> <span class="pre">等)。</span> <span class="pre">可以以后会支持``docx</span></code>, <code class="docutils literal notranslate"><span class="pre">pdf</span></code>, <code class="docutils literal notranslate"><span class="pre">srt</span></code>, <a href="#id4"><span class="problematic" id="id5">``</span></a>html``等格式。</p></li>
+<li><p>第二次上载文件前请点击”Clear”。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tf_type</span></code> <code class="docutils literal notranslate"><span class="pre">idf_type</span></code> <code class="docutils literal notranslate"><span class="pre">dl_type</span></code> <code class="docutils literal notranslate"><span class="pre">norm</span></code>: 一般无需理会这些参数。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">esp</span></code> 和 <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> 的建议值 – <code class="docutils literal notranslate"><span class="pre">esp</span></code> (minimum epsilon): 8-12, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: 4-8.</p>
+<ul>
+<li><p><a href="#id6"><span class="problematic" id="id7">``</span></a>esp``设大些或``min_samples``设小些可以得到更多的对齐对但也会 <strong>误报对</strong> (错误对)。另一方面，<a href="#id8"><span class="problematic" id="id9">``</span></a>esp``设小些或``min_samples``设大些则可能会错失一些’优质对‘。</p></li>
+</ul>
+</li>
+<li><p>嫌图太小的话，可以右击拷出图的链接用浏览器独立访问拷出来的链接或右击存盘再用看图程序打开存盘的图文件。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Flag</span></code>： 运行出错是可以点击``Flag``存下有关参数查看或通知开发者。</p></li>
+</ul>
 </section>
 
 
@@ -87,7 +93,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="userguide.html" class="btn btn-neutral float-left" title="How to use" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="radiobee.html" class="btn btn-neutral float-right" title="radiobee package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

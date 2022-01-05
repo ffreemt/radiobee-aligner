@@ -26,7 +26,7 @@ def test_seg_text_blanks(test_input, expected):
     assert seg_text(test_input) == expected
 
 
-def test_seg_text_semicolon ():
+def test_seg_text_semicolon():
     """Test semicolon."""
     text = """ “元宇宙”，英文為“Metaverse”。該詞出自1992年；的科幻小說《雪崩》。 """
     assert len(seg_text(text)) == 2
@@ -36,7 +36,7 @@ def test_seg_text_semicolon ():
     assert len(seg_text(text, 'en')) == 1
 
 
-def test_seg_text_semicolon_extra ():
+def test_seg_text_semicolon_extra():
     """Test semicolon."""
     extra = "[;；]"
     text = """ “元宇宙”，英文為“Metaverse”。該詞出自1992年；的科幻小說《雪崩》。 """

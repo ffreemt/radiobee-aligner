@@ -38,7 +38,7 @@ def text2lists(text: Union[Iterable[str], str]) -> List[Tuple[str, str]]:
 
     # find offset
 
-    left = []
-    right = []
+    left = []  # noqa
+    right = []  # noqa
 
     return [("", "")]

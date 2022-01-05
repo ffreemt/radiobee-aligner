@@ -97,8 +97,8 @@ if __name__ == "__main__":
     # """
     import logzero
 
-    # debug = True
-    debug = False
+    debug = True
+    # debug = False
     if debug:
         logzero.loglevel(10)
     logger.debug(" debug ")
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     inputs = [
         gr.inputs.File(label="file 1"),
         # gr.inputs.File(file_count="multiple", label="file 2", optional=True),
-        gr.inputs.File(label="file 2", optional=True),
+        gr.inputs.File(label="file 2 (if empty, radiobee will attempt to separate file 1 to two)", optional=True),
     ]
 
     # modi 1
@@ -231,6 +231,16 @@ if __name__ == "__main__":
             10,
             4,
         ],
+        [
+            "data/test-dual.txt",
+            None,
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
     ]
     outputs = ["dataframe", "plot"]
     outputs = ["plot"]
@@ -297,7 +307,16 @@ if __name__ == "__main__":
         # bypass if file1 or file2 is str input
         # if not (isinstance(file1, str) or isinstance(file2, str)):
         text1 = file2text(file1)
-        text2 = file2text(file2)
+
+        if file2 is None:
+            logger.debug("file2 is None")
+            text2 = ""
+
+            # split text1 to text1 and text2
+
+        else:
+            logger.debug("file2.name ", file2.name)
+            text2 = file2text(file2)
         lang1, _ = fastlid(text1)
         lang2, _ = fastlid(text2)
 
@@ -485,6 +504,7 @@ if __name__ == "__main__":
         else:
             raise SystemExit(f"Tried {numb} times to no avail, giving up...")
 
+    # moved to userguide.rst in docs
     article = dedent(
         """
         ## NB
@@ -499,8 +519,16 @@ if __name__ == "__main__":
            'good' pairs.
         *   If you need to have a better look at the image, you can right-click on the image and select copy-image-address and open a new tab in the browser with the copied image address.
         *   `Flag`: Should something go wrong, you can click Flag to save the output and inform the developer.
-    """
-    )
+        """
+    ).strip()
+    article = dedent(
+        """
+        [https://radiobee.readthedocs.io/](https://radiobee.readthedocs.io/)
+
+        [中文使用说明](https://radiobee.readthedocs.io/en/latest/userguide-zh.html#)
+        """
+    ).strip()
+
     css_image = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
     # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
     css_input_file = (
@@ -530,9 +558,7 @@ if __name__ == "__main__":
         # theme="darkgrass",
         theme="grass",
         layout="vertical",  # horizontal unaligned
-        # height=150,  # 500
-        width=900,  # 900
-        allow_flagging=True,
+        allow_flagging="auto",
         flagging_options=[
             "fatal",
             "bug",
@@ -551,6 +577,8 @@ if __name__ == "__main__":
         server_port=server_port,
         # show_tips=True,
         enable_queue=True,
+        # height=150,  # 500
+        # width=900,  # 900
     )
 
 _ = """

@@ -11,8 +11,10 @@ Welcome to radiobee's documentation!
    :caption: Contents:
 
    intro
-   radiobee
+   userguide
+   userguide-zh
    examples
+   radiobee
 
 Indices and tables
 ==================

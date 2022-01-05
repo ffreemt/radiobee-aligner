@@ -6,4 +6,4 @@ from radiobee.loadtext import loadtext
 def test_text2lists():
     """Test text2lists data\test-dual.txt."""
     filename = r"data\test-dual.txt"
-    text = loadtext(filename)
+    text = loadtext(filename)  # noqa

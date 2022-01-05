@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to use &mdash; radiobee 0.1.0beta2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="使用说明" href="userguide-zh.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> radiobee
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userguide-zh.html">使用说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="radiobee.html">radiobee package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">radiobee</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>How to use</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/userguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-to-use">
+<h1>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">radiobee</span> <span class="pre">aligner</span></code> is a sibling of <cite>bumblebee aligner</cite>. To know more about these aligners, please join qq group <cite>316287378</cite>.</p></li>
+<li><p>Uploaded files should be in pure text format (txt, md, csv etc). <code class="docutils literal notranslate"><span class="pre">docx</span></code>, <code class="docutils literal notranslate"><span class="pre">pdf</span></code>, <code class="docutils literal notranslate"><span class="pre">srt</span></code>, <code class="docutils literal notranslate"><span class="pre">html</span></code> etc may be supported later on.</p></li>
+<li><p>Click “Clear” first for subsequent submits when uploading files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tf_type</span></code> <code class="docutils literal notranslate"><span class="pre">idf_type</span></code> <code class="docutils literal notranslate"><span class="pre">dl_type</span></code> <code class="docutils literal notranslate"><span class="pre">norm</span></code>: Normally there is no need to touch these unless you know what you are doing.</p></li>
+<li><p>Suggested <code class="docutils literal notranslate"><span class="pre">esp</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> values – <code class="docutils literal notranslate"><span class="pre">esp</span></code> (minimum epsilon): 8-12, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>: 4-8.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Larger <code class="docutils literal notranslate"><span class="pre">esp</span></code> or smaller <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> will result in more aligned pairs but also more <strong>false positives</strong> (pairs falsely identified as candidates). On the other hand, smaller <code class="docutils literal notranslate"><span class="pre">esp</span></code> or larger <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> values tend to miss ‘good’ pairs.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>If you need to have a better look at the image, you can right-click on the image and select copy-image-address and open a new tab in the browser with the copied image address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Flag</span></code>: Should something go wrong, you can click Flag to save the output and inform the developer.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="userguide-zh.html" class="btn btn-neutral float-right" title="使用说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, mu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
