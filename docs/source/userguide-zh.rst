@@ -1,15 +1,15 @@
 使用说明
 ----------
 
--   ``radiobee aligner``是``bumblebee`` aligner`的孪生兄弟。请加入qq群`316287378`了解这些对齐工具.
+-   ``radiobee aligner`` 是 ``bumblebee aligner`` 的孪生兄弟。请加入qq群 ``316287378`` 了解这些对齐工具.
 
--  ``radiobee``目前仅支持中英、英中对齐。
--  ``radiobee``目前仅支持纯文本文件上载 (txt, md, csv 等)。 可以以后会支持``docx``, ``pdf``, ``srt``, ``html``等格式。
+-  ``radiobee`` 目前仅支持中英、英中对齐。
+-  ``radiobee`` 目前仅支持纯文本文件上载 (txt, md, csv 等)。 以后可能会支持 ``docx``, ``pdf``, ``srt``, ``html`` 等格式。
 -  第二次上载文件前请点击"Clear"。
 -  ``tf_type`` ``idf_type`` ``dl_type`` ``norm``: 一般无需理会这些参数。
--  ``esp`` 和 ``min_samples`` 的建议值 -- ``esp`` (minimum epsilon): 8-12, ``min_samples``: 4-8.
+-  ``esp`` 和 ``min_samples`` 的建议值 -- ``esp`` (最小 ``epsilon``): 8-12, ``min_samples``: 4-8.
 
-   -   ``esp``设大些或``min_samples``设小些可以得到更多的对齐对但也会 **误报对** (错误对)。另一方面，``esp``设小些或``min_samples``设大些则可能会错失一些’优质对‘。
+   -   ``esp`` 设大些或 ``min_samples`` 设小些可以得到更多的对齐对但也会“误报对” (错误判断为对齐的对)。另一方面，``esp``  设小些或 ``min_samples`` 设大些则可能会错失一些“优质对”。
 
 -  嫌图太小的话，可以右击拷出图的链接用浏览器独立访问拷出来的链接或右击存盘再用看图程序打开存盘的图文件。
--   ``Flag``： ``radiobee`` 运行出错时可以点击``Flag``存下有关参数查看或通知开发者。
+-   ``Flag``： ``radiobee`` 运行出错时可以点击 ``Flag`` 存下有关参数查看或通知开发者。

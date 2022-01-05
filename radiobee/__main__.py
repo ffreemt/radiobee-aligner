@@ -1,6 +1,6 @@
 """Run interactively."""
 # pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, wrong-import-position, too-many-locals, too-many-statements
-from typing import Any, Tuple, Optional  # noqa
+from typing import Any, Tuple, Optional, Union  # noqa
 
 import sys
 from pathlib import Path
@@ -88,14 +88,18 @@ def process_2upoads(file1, file2):
 def error_msg(
     msg: Optional[str],
     title: str = "error message",
-) -> Tuple[Any, None, None, None, None]:
+    # ) -> Tuple[Union[pd.DataFrame, None], None, None, None, None]:
+):
     """Prepare error message for fn outputs."""
     if msg is None:
         msg = "none..."
-    else:
-        msg = str(msg)
 
-    df = pd.DataFrame([msg[:300], columns=[title])
+    try:
+        msg = msg.__str__()
+    except Exception as exc:
+        msg = str(exc)
+
+    df = pd.DataFrame([msg], columns=[title])
 
     return (df, *((None,) * 4))
 
@@ -551,7 +555,7 @@ if __name__ == "__main__":
     ).strip()
     article = dedent(
         """
-        [[https://radiobee.readthedocs.io/](https://radiobee.readthedocs.io/)] [[中文使用说明](https://radiobee.readthedocs.io/en/latest/userguide-zh.html#)]
+        [readthedocs](https://radiobee.readthedocs.io/), [中文使用说明](https://radiobee.readthedocs.io/en/latest/userguide-zh.html#)
         """
     ).strip()
 
