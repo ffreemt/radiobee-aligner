@@ -16,6 +16,7 @@ from socket import socket, AF_INET, SOCK_STREAM
 from sklearn.cluster import DBSCAN  # noqa
 import joblib
 from varname import nameof
+import logzero
 from logzero import logger
 
 # import numpy as np
@@ -27,8 +28,10 @@ import matplotlib.pyplot as plt  # noqa
 # from tabulate import tabulate
 from fastlid import fastlid
 
+# for embeddable python
 if "." not in sys.path:
     sys.path.insert(0, ".")
+
 import gradio as gr
 from radiobee.process_upload import process_upload
 from radiobee.files2df import files2df
@@ -108,19 +111,22 @@ def error_msg(
 
 
 if __name__ == "__main__":
-    _ = """
-    fn = process_2upoads
-    inputs = ["file", "file"]
-    examples = [
-        ["data/test_zh.txt", "data/test_en.txt"],
-        ["data/test_en.txt", "data/test_zh.txt"],
-    ]
-    outputs = ["dataframe"]
-    # """
-    import logzero
-
     debug = True
     # debug = False
+
+    uname = platform.uname()
+
+    # match = re.search(r'[a-z\d]{10,}', gethostname())
+    # hf spaces release: '4.14.248-189.473.amzn2.x86_64'
+    # match = re.search(r'[a-z\d]{10,}', node)
+    # if match and node.system.lower() in ["linux"]:
+    if "amzn2" in uname.release:
+        # likely hf spaces
+        server_name = "0.0.0.0"
+        debug = False
+    else:
+        server_name = "127.0.0.1"
+
     if debug:
         logzero.loglevel(10)
     logger.debug(" debug ")
@@ -606,20 +612,6 @@ if __name__ == "__main__":
         ],  # "paragon"],
         css=f"{css_image} {css_input_file} {css_output_file}",
     )
-
-    uname = platform.uname()
-    # node = uname.node
-
-    # match = re.search(r'[a-z\d]{10,}', gethostname())
-    # hf spaces release: '4.14.248-189.473.amzn2.x86_64'
-    # match = re.search(r'[a-z\d]{10,}', node)
-    # if match and node.system.lower() in ["linux"]:
-    if "amzn2" in uname.release:
-        # likely hf spaces
-        server_name = "0.0.0.0"
-        debug = False
-    else:
-        server_name = "127.0.0.1"
 
     iface.launch(
         share=False,
