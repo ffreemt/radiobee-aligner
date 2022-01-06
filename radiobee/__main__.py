@@ -495,8 +495,8 @@ if __name__ == "__main__":
         ax0.set_ylim(ymin=0, ymax=ylim)
         ax0.set_title(
             "max along columns ('x': outliers)\n"
-            "potential aligned pairs (green line) "
-            f"({round(sum(_) / xlim, 2):.0%})"
+            "potential aligned pairs (green line), "
+            f"{round(sum(_) / xlim, 2):.0%}"
         )
 
         # clustered
