@@ -4,10 +4,13 @@ from typing import Any, Tuple, Optional, Union  # noqa
 
 import sys
 from pathlib import Path
+import platform
 import signal
 from random import randint
 from textwrap import dedent
 from itertools import zip_longest
+
+# import socket
 from socket import socket, AF_INET, SOCK_STREAM
 
 from sklearn.cluster import DBSCAN  # noqa
@@ -450,6 +453,7 @@ if __name__ == "__main__":
 
         # close all existing figures, necesssary for hf spaces
         plt.close("all")
+
         # if sys.platform not in ["win32", "linux"]:
         plt.switch_backend('Agg')  # to cater for Mac, thanks to WhiteFox
 
@@ -603,11 +607,25 @@ if __name__ == "__main__":
         css=f"{css_image} {css_input_file} {css_output_file}",
     )
 
+    uname = platform.uname()
+    # node = uname.node
+
+    # match = re.search(r'[a-z\d]{10,}', gethostname())
+    # hf spaces release: '4.14.248-189.473.amzn2.x86_64'
+    # match = re.search(r'[a-z\d]{10,}', node)
+    # if match and node.system.lower() in ["linux"]:
+    if "amzn2" in uname.release:
+        # likely hf spaces
+        server_name = "0.0.0.0"
+        debug = False
+    else:
+        server_name = "127.0.0.1"
+
     iface.launch(
         share=False,
         # share=True,
         debug=debug,
-        server_name="0.0.0.0",
+        server_name=server_name,
         # server_name="127.0.0.1",
         server_port=server_port,
         # show_tips=True,

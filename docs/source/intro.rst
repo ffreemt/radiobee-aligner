@@ -3,14 +3,14 @@ Introduction
 
 ``radiobee`` (or ``radiobee aligner`` in full) is a powerful dualtext aligner.
 
-The aim here was to provide an interface to aligner two texts.
+The aim here was to provide an interface to align two texts.
 
 The current implementation has been developed in Python 3 and ``gradio``.
 
 Motivation
 **********
 
-Aligned texts (paragraph-to-paragraph or sentence-to-sentence) can be used in machine learning (e.g. machine translation), CAT (tmx, translation terms etc.) and education (dual-language ebook), etc.
+Properly aligned texts (paragraph-to-paragraph or sentence-to-sentence) find applications in machine learning (e.g. machine translation), CAT (tmx, translation terms etc.) and education (dual-language ebook), etc.
 
 Limitations
 ***********
