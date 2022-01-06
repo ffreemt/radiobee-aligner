@@ -461,7 +461,7 @@ if __name__ == "__main__":
         plt.close("all")
 
         # if sys.platform not in ["win32", "linux"]:
-        plt.switch_backend('Agg')  # to cater for Mac, thanks to WhiteFox
+        plt.switch_backend("Agg")  # to cater for Mac, thanks to WhiteFox
 
         # figsize=(13, 8), (339, 212) mm on '1280x800+0+0'
         fig = plt.figure(figsize=(13, 8))
@@ -575,13 +575,12 @@ if __name__ == "__main__":
     ).strip()
 
     css_image = ".output_image, .input_image {height: 40rem !important; width: 100% !important;}"
+
     # css = ".output_image, .input_image {height: 20rem !important; width: 100% !important;}"
-    css_input_file = (
-        ".input_file {height: 8rem !important; width: 100% !important;}"
-    )
-    css_output_file = (
-        ".output_file {height: 4rem !important; width: 100% !important;}"
-    )
+
+    css_input_file = ".input_file  {height: 8rem !important; width: 100% !important;}"
+
+    css_output_file = ".output_file  {height: 4rem !important; width: 100% !important;}"
 
     logger.info("running at port %s", server_port)
 
@@ -603,7 +602,7 @@ if __name__ == "__main__":
         # theme="darkgrass",
         theme="grass",
         layout="vertical",  # horizontal unaligned
-        allow_flagging="auto",
+        allow_flagging="manual",  # "auto"
         flagging_options=[
             "fatal",
             "bug",
