@@ -94,8 +94,7 @@ def process_2upoads(file1, file2):
 def error_msg(
     msg: Optional[str],
     title: str = "error message",
-    # ) -> Tuple[Union[pd.DataFrame, None], None, None, None, None]:
-):
+) -> Tuple[Union[pd.DataFrame, None], None, None, None, None]:
     """Prepare error message for fn outputs."""
     if msg is None:
         msg = "none..."
@@ -107,7 +106,8 @@ def error_msg(
 
     df = pd.DataFrame([msg], columns=[title])
 
-    return (df, *((None,) * 4))
+    # return df, *((None,) * 4)  # pyright complains
+    return df, None, None, None, None
 
 
 if __name__ == "__main__":
