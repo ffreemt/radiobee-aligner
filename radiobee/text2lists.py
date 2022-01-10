@@ -61,9 +61,11 @@ def text2lists(
             res.append(elm)
         else:
             if left:
-                list1.append("\n".join(res))
+                # list1.append("\n".join(res))
+                list1.extend(res)
             else:
-                list2.append("\n".join(res))
+                # list2.append("\n".join(res))
+                list2.extend(res)
             left = not left
 
             res = [elm]

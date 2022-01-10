@@ -13,4 +13,4 @@ def test_text2lists_bug2():
     # assert "国际\n中\n双语" in l1[0]
 
     assert len(l1) == 4
-    assert len(l5) == 5
+    assert len(l2) == 5
