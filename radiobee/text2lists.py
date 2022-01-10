@@ -69,6 +69,12 @@ def text2lists(
             res = [elm]
             lang0 = lang
 
+    # process the last
+    if left:
+        list1.extend(res)
+    else:
+        list2.extend(res)
+
     try:
         # lang1, _ = fastlid(' '.join(list1))
         lang1 = detect(" ".join(list1), set_languages)
