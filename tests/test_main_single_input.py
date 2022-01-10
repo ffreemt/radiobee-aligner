@@ -11,7 +11,8 @@ from logzero import logger
 from radiobee.files2df import files2df
 from radiobee.file2text import file2text
 from radiobee.lists2cmat import lists2cmat
-from radiobee.cmat2tset import cmat2tset
+
+# from radiobee.cmat2tset import cmat2tset
 
 file1loc = "data/test-dual.txt"
 file2loc = ""
@@ -34,6 +35,7 @@ def test_file2file1():
     text1 = file2text(file1)
     text2 = file2text(file2)
 
+    fastlid.set_languages = ["en", "zh"]
     lang1, _ = fastlid(text1)
     lang2, _ = fastlid(text2)
 
