@@ -280,6 +280,7 @@ if __name__ == "__main__":
         out_file_dl,
         out_file_dl_excel,
         out_df_aligned,
+        gr.outputs.HTML(),
     ]
     # outputs = ["dataframe", "plot", "plot"]  # wont work
     # outputs = ["dataframe"]

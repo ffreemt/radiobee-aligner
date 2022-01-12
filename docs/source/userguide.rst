@@ -4,7 +4,7 @@ How to use
 -   ``radiobee aligner`` is a sibling of `bumblebee aligner`. To know more about these aligners, please join qq group `316287378`.
 
 -   Uploaded files should be in pure text format (txt, md, csv etc). ``docx``, ``pdf``, ``srt``, ``html`` etc may be supported later on.
-- If ``file 2`` is left blank, ``radibee`` will treat ``file 1`` as mixed English-Chinese text and attempt to separate English and Chinese texts before procedding to align them.
+- If ``file 2`` is left blank, ``radiobee`` will treat ``file 1`` as mixed English-Chinese text and attempt to separate English and Chinese texts before procedding to align them.
 
 -   Click "Clear" first for subsequent submits when uploading files.
 -  ``tf_type`` ``idf_type`` ``dl_type`` ``norm``: Normally there is no need to touch these unless you know what you are doing.

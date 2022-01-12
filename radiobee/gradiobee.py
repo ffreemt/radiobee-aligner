@@ -28,6 +28,7 @@ from radiobee.text2lists import text2lists
 
 sns.set()
 sns.set_style("darkgrid")
+pd.options.display.float_format = "{:,.2f}".format
 
 debug = False
 debug = True
@@ -313,6 +314,33 @@ def gradiobee(
     df_aligned = df_aligned[["text2", "text1", "likelihood"]]
     df_aligned.columns = ["text1", "text2", "likelihood"]
 
+    # round the last column to 2
+    # df_aligned.likelihood = df_aligned.likelihood.round(2)
+    # df_aligned = df_aligned.round({"likelihood": 2})
+
+    # df_aligned.likelihood = df_aligned.likelihood.apply(lambda x: np.nan if x in [""] else x)
+
+    # style
+    styled = df_aligned.style.set_properties(
+        **{
+            "font-size": "10pt",
+            "border-color": "black",
+            "border": "1px black solid !important"
+        }
+        # border-color="black",
+    ).set_table_styles([{
+        "selector": "",  # noqs
+        "props": [("border", "2px black solid !important")]}]  # noqs
+    ).format(
+        precision=2
+    )
+    # .bar(subset="likelihood", color="#5fba7d")
+
+    # .background_gradient("Greys")
+
+    # df_html = df_aligned.to_html()
+    df_html = styled.to_html()
+
     # ===
     if plot_dia:
         output_plot = "img/plt.png"
@@ -330,6 +358,8 @@ def gradiobee(
     # return df_trimmed, plt, file_dl, file_dl_xlsx, df_aligned
 
     # output_plot: gr.outputs.Image(type="auto", label="...")
-    return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned
+    # return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned
+    # return df_trimmed, output_plot, file_dl, file_dl_xlsx, styled, df_html  # gradio cant handle style
+    return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned, df_html
 
     # modi outputs
