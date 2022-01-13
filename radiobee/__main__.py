@@ -242,6 +242,16 @@ if __name__ == "__main__":
             10,
             6,
         ],
+        [
+            "data/xiyouji-ch1-zh.txt",
+            "data/xiyouji-ch1-de.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
     ]
 
     # modi examples setup

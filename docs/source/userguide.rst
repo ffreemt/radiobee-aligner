@@ -4,8 +4,8 @@ How to use
 -   ``radiobee aligner`` is a sibling of `bumblebee aligner`. To know more about these aligners, please join qq group `316287378`.
 
 -   Uploaded files should be in pure text format (txt, md, csv etc). ``docx``, ``pdf``, ``srt``, ``html`` etc may be supported later on.
-- If ``file 2`` is left blank, ``radiobee`` will treat ``file 1`` as mixed English-Chinese text and attempt to separate English and Chinese texts before procedding to align them.
-
+- If ``file 2`` is left blank, ``radiobee`` will treat ``file 1`` as mixed (for example English-Chinese) text and attempt to separate English and Chinese texts before procedding to align them.
+- The number non-blank lines is limited to 2000 for zh-en/zh-en and 200 for other languange pairs.
 -   Click "Clear" first for subsequent submits when uploading files.
 -  ``tf_type`` ``idf_type`` ``dl_type`` ``norm``: Normally there is no need to touch these unless you know what you are doing.
 -   Suggested ``esp`` and ``min_samples`` values -- ``esp`` (minimum epsilon): 8-12, ``min_samples``: 4-8.

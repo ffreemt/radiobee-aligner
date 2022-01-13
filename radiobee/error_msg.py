@@ -6,7 +6,7 @@ import pandas as pd
 def error_msg(
     msg: Optional[Union[str, Exception]],
     title: str = "error message",
-) -> Tuple[Union[pd.DataFrame, None], None, None, None, None]:
+) -> Tuple[Union[pd.DataFrame, None], None, None, None, None, None]:
     """Prepare an error message for gradiobee outputs."""
     if msg is None:
         msg = "none..."
@@ -19,4 +19,4 @@ def error_msg(
     df = pd.DataFrame([msg], columns=[title])
 
     # return df, *((None,) * 4)  # pyright complains
-    return df, None, None, None, None
+    return df, None, None, None, None, None

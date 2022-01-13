@@ -13,6 +13,7 @@ seaborn
 cchardet
 tabulate
 git+https://github.com/ffreemt/fast-langid
+sentence-transformers
 # python-dotenv
 varname
 openpyxl

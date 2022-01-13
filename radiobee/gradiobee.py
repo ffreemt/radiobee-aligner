@@ -1,5 +1,7 @@
 """Gradiobee."""
+# pylint: disable=invalid-name
 from pathlib import Path
+import platform
 from itertools import zip_longest
 
 # import tempfile
@@ -26,6 +28,12 @@ from radiobee.trim_df import trim_df
 from radiobee.error_msg import error_msg
 from radiobee.text2lists import text2lists
 
+uname = platform.uname()
+HFSPACES = False
+if "amzn2" in uname.release:  # on hf spaces
+    HFSPACES = True
+    import SentenceTransformer
+    model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
 sns.set()
 sns.set_style("darkgrid")
 pd.options.display.float_format = "{:,.2f}".format
@@ -92,10 +100,16 @@ def gradiobee(
     # single file
     # when text2 is empty
     # process file1/text1: split text1 to text1 text2 to zh-en
+
+    len_max = 2000
     if not text2.strip():
         _ = [elm.strip() for elm in text1.splitlines() if elm.strip()]
         if not _:  # essentially empty file1
             return error_msg("Nothing worthy of processing in file 1")
+
+        # exit if there are too many lines
+        if len(_) > len_max:
+            return error_msg(f" Too many lines ({len(_)}) > {len_max}, alignment op halted, sorry.", "info")
 
         _ = zip_longest(_, [""])
         _ = pd.DataFrame(_, columns=["text1", "text2"])
@@ -148,6 +162,11 @@ def gradiobee(
         # len1 = len(list1)  # noqa
         # len2 = len(list2)  # noqa
 
+        # exit if there are too many lines
+        len12 = len(list1) + len(list2)
+        if len12 > 2 * len_max:
+            return error_msg(f" Too many lines ({len(list1)} + {len(list2)} > {2 * len_max}), alignment op halted, sorry.", "info")
+
         file_dl = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.csv")
         file_dl_xlsx = Path(
             f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.xlsx"
@@ -156,18 +175,43 @@ def gradiobee(
         df_trimmed = trim_df(df1)
     # --- end else single
 
-    try:
-        cmat = lists2cmat(
-            list1,
-            list2,
-            tf_type=tf_type,
-            idf_type=idf_type,
-            dl_type=dl_type,
-            norm=norm,
-        )
-    except Exception as exc:
-        logger.error(exc)
-        return error_msg(exc)
+    logger.debug("lang1: %s, lang2: %s", lang1, lang2)
+    if debug:
+        print("gradiobee ln 179 lang1: %s, lang2: %s" % (lang1, lang2))
+        print("fast track? ", lang1 in lang_en_zh and lang2 in lang_en_zh)
+
+    # fast track
+    lang_en_zh = ["en", "zh"]
+    if lang1 in lang_en_zh and lang2 in lang_en_zh:
+        try:
+            cmat = lists2cmat(
+                list1,
+                list2,
+                tf_type=tf_type,
+                idf_type=idf_type,
+                dl_type=dl_type,
+                norm=norm,
+            )
+        except Exception as exc:
+            logger.error(exc)
+            return error_msg(exc)
+    # slow track
+    else:
+        if len(list1) + len(list2) > 200:
+            msg = (
+                "This will take too long (> 2 minutes) to complete "
+                "and will hog this experimental server and hinder "
+                "other users from trying the service. "
+                "Aborted...sorry"
+            )
+            return error_msg(msg, "info ")
+        try:
+            vec1 = model_s.encode(list1)
+            vec2 = model_s.encode(list2)
+            cmat = vec1.dot(vec2.T)
+        except Exception as exc:
+            logger.error(exc)
+            return error_msg(exc)
 
     tset = pd.DataFrame(cmat2tset(cmat))
     tset.columns = ["x", "y", "cos"]
@@ -320,26 +364,29 @@ def gradiobee(
 
     # df_aligned.likelihood = df_aligned.likelihood.apply(lambda x: np.nan if x in [""] else x)
 
-    # style
-    styled = df_aligned.style.set_properties(
-        **{
-            "font-size": "10pt",
-            "border-color": "black",
-            "border": "1px black solid !important"
-        }
-        # border-color="black",
-    ).set_table_styles([{
-        "selector": "",  # noqs
-        "props": [("border", "2px black solid !important")]}]  # noqs
-    ).format(
-        precision=2
-    )
-    # .bar(subset="likelihood", color="#5fba7d")
+    if len(df_aligned) > 200:
+        df_html = None
+    else:  # show a one-bathc table in html
+        # style
+        styled = df_aligned.style.set_properties(
+            **{
+                "font-size": "10pt",
+                "border-color": "black",
+                "border": "1px black solid !important"
+            }
+            # border-color="black",
+        ).set_table_styles([{
+            "selector": "",  # noqs
+            "props": [("border", "2px black solid !important")]}]  # noqs
+        ).format(
+            precision=2
+        )
+        # .bar(subset="likelihood", color="#5fba7d")
 
-    # .background_gradient("Greys")
+        # .background_gradient("Greys")
 
-    # df_html = df_aligned.to_html()
-    df_html = styled.to_html()
+        # df_html = df_aligned.to_html()
+        df_html = styled.to_html()
 
     # ===
     if plot_dia:
