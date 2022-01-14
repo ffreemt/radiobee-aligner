@@ -201,7 +201,7 @@ def gradiobee(
             return error_msg(exc)
     # slow track
     else:
-        if len(list1) + len(list2) > 200:
+        if len(list1) + len(list2) > 2000:
             msg = (
                 "This will take too long (> 2 minutes) to complete "
                 "and will hog this experimental server and hinder "
