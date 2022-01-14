@@ -18,4 +18,4 @@ Limitations
 Currently, only zh-en/en-zh pairs are supported in fast-track mode although further pairs will be added if and when time permits.
 If you are willing to help with a particular pair (for example, de-zh, ja-zh, ru-zh, etc.), you are welcome to contact the developer.
 
-An experimental slow-track mode (approximately 500 pairs per 5 minutes) is introdueced for other laugnage pairs.
+An experimental slow-track mode (time required approximately 10 times that of fast-track mode) is introdueced for other laugnage pairs.
