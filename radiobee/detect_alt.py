@@ -27,23 +27,12 @@ def with_func_attrs(**attrs: Any) -> Callable:
 # @with_func_attrs(set_languages=None)
 # def detect(text: str) -> str:
 def detect(text: str, set_languages: Optional[List[str]] = None) -> str:
-    """Detect language via polyglot and fastlid.
-
-    check first with fastlid, if conf < 0.3, check with
-
-    Alternative in detec_alt.py
-    """
+    """Detect language via polyglot and fastlid."""
     # if not text.strip(): return "en"
-    fastlid.set_languages = set_languages
-    lang, conf = fastlid(text)
-    detect.lang_conf = lang, conf
-    if conf >= 0.3 or lang in ["zh"]:
-        return lang
-
     try:
-        langs = [(elm.code[:2], elm.confidence) for elm in Detector(text).languages]
-        detect.lang_conf = langs
-        # lang, conf = _[0]
+        _ = [(elm.code[:2], elm.confidence) for elm in Detector(text).languages]
+        detect.lang_conf = _
+        lang, conf = _[0]
     except UnknownLanguage:
         if set_languages is None:
             def_lang = "en"
@@ -51,31 +40,27 @@ def detect(text: str, set_languages: Optional[List[str]] = None) -> str:
             # def_lang = set_languages[-1]
             def_lang = set_languages[0]
         logger.warning(" UnknownLanguage exception: probably snippet too short, setting to %s", def_lang)
-        langs = [(def_lang, 0)]
+        lang, conf = def_lang, 0
     except Exception as exc:
         logger.error(exc)
-        langs = [("en", 0)]
+        lang, conf = "en", 0
 
     del conf
 
-    # return first enrty's lang
+    # if set_languages is None,
+    # trust polyglot.text.Detector
     if set_languages is None:
-        def_lang = langs[0][0]
-    else:
-        def_lang = "en"
-
-        # pick the first in Detector(text).languages
-
-        # just to silence pyright
-        # set_languages_: List[str] = [""] if set_languages is None else set_languages
-
-        for elm in langs:
-            if elm[0] in set_languages:  # type: ignore
-                def_lang = elm[0]
-                break
+        return lang
 
     # set_languages is set
     if not isinstance(set_languages, (list, tuple)):
         logger.warning("set_languages (%s) ought to be a list/tuple")
 
-    return def_lang
+    if lang in set_languages:
+        return lang
+
+    # lang not in set_languages, use fastlid
+    fastlid.set_languages = set_languages
+    lang, _ = fastlid(text)
+
+    return lang

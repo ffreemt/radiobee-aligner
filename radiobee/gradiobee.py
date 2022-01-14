@@ -2,6 +2,7 @@
 # pylint: disable=invalid-name
 from pathlib import Path
 import platform
+import inspect
 from itertools import zip_longest
 
 # import tempfile
@@ -32,7 +33,7 @@ uname = platform.uname()
 HFSPACES = False
 if "amzn2" in uname.release:  # on hf spaces
     HFSPACES = True
-    import SentenceTransformer
+    from sentence_transformers import SentenceTransformer
     model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
 sns.set()
 sns.set_style("darkgrid")
@@ -102,7 +103,7 @@ def gradiobee(
     # process file1/text1: split text1 to text1 text2 to zh-en
 
     len_max = 2000
-    if not text2.strip():
+    if not text2.strip():  # empty file2
         _ = [elm.strip() for elm in text1.splitlines() if elm.strip()]
         if not _:  # essentially empty file1
             return error_msg("Nothing worthy of processing in file 1")
@@ -151,7 +152,9 @@ def gradiobee(
         # return  df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned
 
     # end if single file
+    # not single file
     else:  # file1 file 2: proceed
+        fastlid.set_languages = None
         lang1, _ = fastlid(text1)
         lang2, _ = fastlid(text2)
 
@@ -175,13 +178,14 @@ def gradiobee(
         df_trimmed = trim_df(df1)
     # --- end else single
 
+    lang_en_zh = ["en", "zh"]
+
     logger.debug("lang1: %s, lang2: %s", lang1, lang2)
     if debug:
-        print("gradiobee ln 179 lang1: %s, lang2: %s" % (lang1, lang2))
+        print("gradiobee.py ln 82 lang1: %s, lang2: %s" % (lang1, lang2))
         print("fast track? ", lang1 in lang_en_zh and lang2 in lang_en_zh)
 
     # fast track
-    lang_en_zh = ["en", "zh"]
     if lang1 in lang_en_zh and lang2 in lang_en_zh:
         try:
             cmat = lists2cmat(
@@ -208,10 +212,11 @@ def gradiobee(
         try:
             vec1 = model_s.encode(list1)
             vec2 = model_s.encode(list2)
-            cmat = vec1.dot(vec2.T)
+            # cmat = vec1.dot(vec2.T)
+            cmat = vec2.dot(vec1.T)
         except Exception as exc:
             logger.error(exc)
-            return error_msg(exc)
+            return error_msg(f"{exc}, {__file__} {inspect.currentframe().f_lineno}, period")
 
     tset = pd.DataFrame(cmat2tset(cmat))
     tset.columns = ["x", "y", "cos"]

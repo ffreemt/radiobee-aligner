@@ -7,6 +7,7 @@ from typing import Iterable, List, Optional, Tuple, Union  # noqa
 import numpy as np
 
 # from fastlid import fastlid
+from polyglot.text import Detector
 from logzero import logger
 
 from radiobee.lists2cmat import lists2cmat
@@ -21,9 +22,8 @@ def text2lists(
 
     Args:
         text: mixed text
-        set_languages: default to ["en", "zh"];
-            if set_languages is None:
-                set_languages = ["en", "zh"]
+        set_languages: no default (open-end)
+            use polyglot.text.Detector to pick two languages
 
     Attributes:
         cmat: correlation matrix (len(list_l) x len(list_r))
@@ -42,7 +42,19 @@ def text2lists(
 
     # set_languages default to ["en", "zh"]
     if set_languages is None:
-        set_languages = ["en", "zh"]
+        lang12 = [elm.code for elm in Detector(text).languages]
+
+        # set_languages = ["en", "zh"]
+
+        # set 'un' to 'en'
+        # set_languages = ['en' if elm in ['un'] else elm for elm in lang12[:2]]
+        set_languages = []
+        for elm in lang12[:2]:
+            if elm in ["un"]:
+                logger.warning(" Unknown language, set to en")
+                set_languages.append("en")
+            else:
+                set_languages.append(elm)
 
     # fastlid.set_languages = set_languages
 
@@ -51,6 +63,7 @@ def text2lists(
 
     # lang0, _ = fastlid(text[:15000])
     lang0 = detect(text, set_languages)
+
     res = []
     left = True  # start with left list1
 

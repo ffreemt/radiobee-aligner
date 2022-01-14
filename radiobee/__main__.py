@@ -309,7 +309,7 @@ if __name__ == "__main__":
         else:
             raise SystemExit(f"Tried {numb} times to no avail, giving up...")
 
-    description = "WIP showcasing a blazing fast dualtext aligner, currrently supported language pairs: en-zh/zh-en"
+    description = "WIP showcasing a blazing fast dualtext aligner, currrently supported language pairs: en-zh/zh-en for fast-track, other language pairs are handled by slow-track"
 
     # moved to userguide.rst in docs
     article = dedent(
