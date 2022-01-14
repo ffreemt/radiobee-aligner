@@ -252,6 +252,16 @@ if __name__ == "__main__":
             10,
             6,
         ],
+        [
+            "data/demian-hesse-de.txt",
+            "data/demian-hesse-en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
     ]
 
     # modi examples setup
