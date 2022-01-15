@@ -398,6 +398,7 @@ if __name__ == "__main__":
         description=description,
         article=article,
         examples=examples,
+        examples_per_page=4,
         # theme="darkgrass",
         theme="grass",
         layout="vertical",  # horizontal unaligned
@@ -415,6 +416,7 @@ if __name__ == "__main__":
         share=False,
         # share=True,
         debug=debug,
+        show_error=True,
         server_name=server_name,
         # server_name="127.0.0.1",
         server_port=server_port,
