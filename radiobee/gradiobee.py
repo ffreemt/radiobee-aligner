@@ -107,7 +107,7 @@ def gradiobee(
             return error_msg("Nothing worthy of processing in file 1")
 
         logger.info(
-            "fast track single fiel: len %1, max %s",
+            "fast track single fiel: len %s, max %s",
             len(_), 2 * len_max
         )
         # exit if there are too many lines
@@ -228,7 +228,7 @@ def gradiobee(
             cmat = vec2.dot(vec1.T)
         except Exception as exc:
             logger.error(exc)
-            return error_msg(f"{exc}, {__file__} {inspect.currentframe().f_lineno}, period")
+            return error_msg(f"{exc}, {Path(__file__).name} ln{inspect.currentframe().f_lineno}, period")
 
     tset = pd.DataFrame(cmat2tset(cmat))
     tset.columns = ["x", "y", "cos"]

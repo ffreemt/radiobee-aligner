@@ -97,6 +97,7 @@ if __name__ == "__main__":
         # likely hf spaces
         server_name = "0.0.0.0"
         debug = False
+        debug = True
     else:
         server_name = "127.0.0.1"
 
@@ -255,6 +256,16 @@ if __name__ == "__main__":
         [
             "data/demian-hesse-de.txt",
             "data/demian-hesse-en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
+            "data/catcher-in-the-rye-shixianrong-zh.txt",
+            "data/catcher-in-the-rye-boll-de.txt",
             "linear",
             "None",
             "None",
