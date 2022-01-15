@@ -83,8 +83,6 @@ def gradiobee(
     if file2 is None:
         logger.debug("file2 is None")
         text2 = ""
-
-        # TODO split text1 to text1 and text2
     else:
         logger.debug("file2.name: %s", file2.name)
         text2 = file2text(file2)
@@ -108,9 +106,13 @@ def gradiobee(
         if not _:  # essentially empty file1
             return error_msg("Nothing worthy of processing in file 1")
 
+        logger.info(
+            "fast track single fiel: len %1, max %s",
+            len(_), 2 * len_max
+        )
         # exit if there are too many lines
-        if len(_) > len_max:
-            return error_msg(f" Too many lines ({len(_)}) > {len_max}, alignment op halted, sorry.", "info")
+        if len(_) > 2 * len_max:
+            return error_msg(f" Too many lines ({len(_)}) > {2 * len_max}, alignment op halted, sorry.", "info")
 
         _ = zip_longest(_, [""])
         _ = pd.DataFrame(_, columns=["text1", "text2"])
@@ -167,8 +169,12 @@ def gradiobee(
 
         # exit if there are too many lines
         len12 = len(list1) + len(list2)
-        if len12 > 2 * len_max:
-            return error_msg(f" Too many lines ({len(list1)} + {len(list2)} > {2 * len_max}), alignment op halted, sorry.", "info")
+        logger.info(
+            "fast track: len1 %s, len2 %s, tot %s, max %s",
+            len(list1), len(list2), len(list1) + len(list2), 3 * len_max
+        )
+        if len12 > 3 * len_max:
+            return error_msg(f" Too many lines ({len(list1)} + {len(list2)} > {3 * len_max}), alignment op halted, sorry.", "info")
 
         file_dl = Path(f"{Path(file1.name).stem[:-8]}-{Path(file2.name).stem[:-8]}.csv")
         file_dl_xlsx = Path(
@@ -201,9 +207,15 @@ def gradiobee(
             return error_msg(exc)
     # slow track
     else:
-        if len(list1) + len(list2) > 2000:
+        logger.info(
+            "slow track: len1 %s, len2 %s, tot: %s, max %s",
+            len(list1), len(list2), len(list1) + len(list2),
+            3 * len_max
+        )
+        if len(list1) + len(list2) > 3 * len_max:
             msg = (
-                "This will take too long (> 2 minutes) to complete "
+                f" len1 {len(list1)} + len2 {len(list2)} > {3 * len_max}. "
+                "This will take too long to complete "
                 "and will hog this experimental server and hinder "
                 "other users from trying the service. "
                 "Aborted...sorry"
@@ -323,6 +335,7 @@ def gradiobee(
     fig.suptitle(f"alignment projection\n(eps={eps}, min_samples={min_samples})")
 
     _ = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ > -1
+
     # _x = DBSCAN(min_samples=min_samples, eps=eps).fit(df_).labels_ < 0
     _x = ~_
 
