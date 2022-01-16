@@ -31,14 +31,11 @@ from radiobee.text2lists import text2lists
 
 uname = platform.uname()
 HFSPACES = False
-if "amzn2" in uname.release:  # on hf spaces
+# if "amzn2" in uname.release:  # on hf spaces
+if True:
     HFSPACES = True
     from sentence_transformers import SentenceTransformer  # noqa
     model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
-if True:
-    from sentence_transformers import SentenceTransformer  # noqa
-    model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
-    # 539M
 
 sns.set()
 sns.set_style("darkgrid")

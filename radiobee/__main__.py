@@ -98,8 +98,10 @@ if __name__ == "__main__":
         server_name = "0.0.0.0"
         debug = False
         debug = True
+        share = True
     else:
         server_name = "127.0.0.1"
+        share = False
 
     if debug:
         logzero.loglevel(10)
@@ -424,8 +426,7 @@ if __name__ == "__main__":
     )
 
     iface.launch(
-        share=False,
-        # share=True,
+        share=share,
         debug=debug,
         show_error=True,
         server_name=server_name,
