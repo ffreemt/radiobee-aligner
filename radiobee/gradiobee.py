@@ -33,8 +33,13 @@ uname = platform.uname()
 HFSPACES = False
 if "amzn2" in uname.release:  # on hf spaces
     HFSPACES = True
-    from sentence_transformers import SentenceTransformer
+    from sentence_transformers import SentenceTransformer  # noqa
     model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
+if True:
+    from sentence_transformers import SentenceTransformer  # noqa
+    model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
+    # 539M
+
 sns.set()
 sns.set_style("darkgrid")
 pd.options.display.float_format = "{:,.2f}".format
@@ -228,7 +233,10 @@ def gradiobee(
             cmat = vec2.dot(vec1.T)
         except Exception as exc:
             logger.error(exc)
-            return error_msg(f"{exc}, {Path(__file__).name} ln{inspect.currentframe().f_lineno}, period")
+            _ = inspect.currentframe().f_lineno  # type: ignore
+            return error_msg(
+                f"{exc}, {Path(__file__).name} ln{_}, period"
+            )
 
     tset = pd.DataFrame(cmat2tset(cmat))
     tset.columns = ["x", "y", "cos"]

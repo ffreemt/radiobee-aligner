@@ -244,6 +244,17 @@ if __name__ == "__main__":
             6,
         ],
         [
+            "data/test-zh-ja.txt",
+            "data/empty.txt",
+            # None,  # does not work
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
             "data/xiyouji-ch1-zh.txt",
             "data/xiyouji-ch1-de.txt",
             "linear",

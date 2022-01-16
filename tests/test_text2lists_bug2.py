@@ -5,7 +5,7 @@ from radiobee.text2lists import text2lists
 
 
 def test_text2lists_bug2():
-    """Test text2lists data\问题2测试文件.txt."""
+    r"""Test text2lists data\问题2测试文件.txt."""
     filename = r"data\问题2测试文件.txt"
     textbug2 = loadtext(filename)  # noqa
     l1, l2 = text2lists(textbug2)
