@@ -251,6 +251,16 @@ if __name__ == "__main__":
             6,
         ],
         [
+            "data/英译中国现代散文选1(汉外对照丛书).txt",
+            "data/empty.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+        ],
+        [
             "data/test-zh-ja.txt",
             "data/empty.txt",
             "linear",
@@ -438,7 +448,7 @@ if __name__ == "__main__":
         # server_name="127.0.0.1",
         server_port=server_port,
         # show_tips=True,
-        # enable_queue=True,
+        enable_queue=True,
         # height=150,  # 500
         width=900,  # 900
     )

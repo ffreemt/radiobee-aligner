@@ -110,7 +110,7 @@ def gradiobee(
             return error_msg("Nothing worthy of processing in file 1")
 
         logger.info(
-            "fast track single fiel: len %s, max %s",
+            "single file: len %s, max %s",
             len(_), 2 * len_max
         )
         # exit if there are too many lines
