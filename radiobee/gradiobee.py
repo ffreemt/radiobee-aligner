@@ -7,9 +7,10 @@ from itertools import zip_longest
 
 # import tempfile
 
-from logzero import logger
 from sklearn.cluster import DBSCAN
 from fastlid import fastlid
+from logzero import logger
+from icecream import ic
 
 import numpy as np
 import pandas as pd
@@ -304,6 +305,7 @@ def gradiobee(
     ylim, xlim = len1, len2
 
     # does not seem to show up
+    ic(f" len1 (ylim): {len1}, len2 (xlim): {len2}")
     logger.debug(" len1 (ylim): %s, len2 (xlim): %s", len1, len2)
     if debug:
         print(f" len1 (ylim): {len1}, len2 (xlim): {len2}")
@@ -360,6 +362,7 @@ def gradiobee(
     )
 
     plt_loc = "img/plt.png"
+    ic(f" plotting to {plt_loc}")
     plt.savefig(plt_loc)
 
     # clustered
@@ -380,6 +383,8 @@ def gradiobee(
     # swap text1 text2
     df_aligned = df_aligned[["text2", "text1", "likelihood"]]
     df_aligned.columns = ["text1", "text2", "likelihood"]
+
+    ic(df_aligned.head())
 
     # round the last column to 2
     # df_aligned.likelihood = df_aligned.likelihood.round(2)
@@ -430,6 +435,9 @@ def gradiobee(
     # output_plot: gr.outputs.Image(type="auto", label="...")
     # return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned
     # return df_trimmed, output_plot, file_dl, file_dl_xlsx, styled, df_html  # gradio cant handle style
+
+    ic("returning outputs")
+
     return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned, df_html
 
     # modi outputs

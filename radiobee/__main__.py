@@ -17,6 +17,7 @@ from sklearn.cluster import DBSCAN  # noqa
 
 import joblib
 from varname import nameof
+from icecream import install as ic_install, ic
 import logzero
 from logzero import logger
 
@@ -38,6 +39,11 @@ import gradio as gr
 # from radiobee.error_msg import error_msg
 from radiobee.process_upload import process_upload
 from radiobee.gradiobee import gradiobee
+
+ic_install()
+ic.configureOutput(includeContext=True)
+ic.enable()
+# ic.disenable()  # to turn off
 
 sns.set()
 sns.set_style("darkgrid")
@@ -237,7 +243,6 @@ if __name__ == "__main__":
         [
             "data/test-dual.txt",
             "data/empty.txt",
-            # None,  # does not work
             "linear",
             "None",
             "None",
@@ -248,7 +253,6 @@ if __name__ == "__main__":
         [
             "data/test-zh-ja.txt",
             "data/empty.txt",
-            # None,  # does not work
             "linear",
             "None",
             "None",
@@ -423,6 +427,7 @@ if __name__ == "__main__":
             "excelsior",
         ],  # "paragon"],
         css=f"{css_image} {css_input_file} {css_output_file}",
+        enable_queue=True,
     )
 
     iface.launch(
@@ -433,7 +438,7 @@ if __name__ == "__main__":
         # server_name="127.0.0.1",
         server_port=server_port,
         # show_tips=True,
-        enable_queue=True,
+        # enable_queue=True,
         # height=150,  # 500
         width=900,  # 900
     )
