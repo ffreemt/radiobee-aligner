@@ -1,4 +1,6 @@
 """Talk to spaces VM via subprocess.check_output."""
+# pylint: disable=unused-variable, invalid-name
+
 # import httpx
 import subprocess as sp
 from shlex import split

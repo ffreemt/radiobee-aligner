@@ -97,6 +97,8 @@ def seg_text(
 
     Arguments:
         lst: text or text list
+        lang: optional lang code
+        maxlines: (default 1000), threshold for turn on tqdm progressbar, set to <1 or a large number to turn it off
         extra: re.split(rf"{extra}, text) first
     Returns:
         list of splitted text.

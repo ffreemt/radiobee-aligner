@@ -3,13 +3,16 @@
 refer also to fast-scores fast_scores.py and gen_model.py (sklearn.feature_extraction.text.TfidfVectorizer).
 originally docterm_scores.py.
 """
+# pylint: disable=invalid-name, too-many-locals, too-many-arguments
+
 from typing import Dict, Iterable, Optional, Union
-import numpy as np
 from itertools import chain
+import numpy as np
 from psutil import virtual_memory
 from more_itertools import ilen
 
 from textacy.representations import Vectorizer
+
 # from textacy.representations.vectorizers import Vectorizer
 from logzero import logger
 
@@ -51,8 +54,8 @@ def smatrix(
         for xelm in iter(doc1):
             for elm in iter(xelm):
                 assert isinstance(elm, str)
-    except AssertionError:
-        raise AssertionError(" doc1 is not of the typing  Iterable[Iterable[str]] ")
+    except AssertionError as exc:
+        raise AssertionError(" doc1 is not of the typing  Iterable[Iterable[str]] ") from exc
     except Exception as e:
         logger.error(e)
         raise
@@ -60,8 +63,8 @@ def smatrix(
         for xelm in iter(doc2):
             for elm in iter(xelm):
                 assert isinstance(elm, str)
-    except AssertionError:
-        raise AssertionError(" doc2 is not of the typing  Iterable[Iterable[str]] ")
+    except AssertionError as exc:
+        raise AssertionError(" doc2 is not of the typing  Iterable[Iterable[str]] ") from exc
     except Exception as e:
         logger.error(e)
         raise

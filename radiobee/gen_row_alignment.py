@@ -35,7 +35,7 @@ idx += 1;  i0, i1, i2 = resu[idx]; '***' if i0 == ''
 else src_text[int(i0)], '***' if i1 == '' else tgt_text[int(i1)], ''
 if i2 == '' else i2
 """
-# pylint: disable=line-too-long
+# pylint: disable=line-too-long, unused-variable
 from typing import List, Union
 
 # natural extrapolation with slope equal to 1

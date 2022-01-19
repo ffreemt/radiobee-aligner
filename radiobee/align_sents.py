@@ -1,5 +1,5 @@
 """Align sents via gale-church."""
-# pylint: disable=
+# pylint: disable=invalid-name
 
 from typing import List, Tuple  # noqa
 
@@ -38,8 +38,10 @@ def align_sents(lst1: List[str], lst2: List[str]) -> List[Tuple[str, str]]:
 
     texts = []
     # for elm in aset:
-    for elm0, elm1 in amended_avec:
+    # for elm0, elm1 in amended_avec:
+    for elm in amended_avec:
         # elm0, elm1, elm2 = elm
+        elm0, elm1 = elm[:2]
         _ = []
 
         # src_text first

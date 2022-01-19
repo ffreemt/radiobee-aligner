@@ -1,9 +1,9 @@
 """Run interactively."""
-# pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, wrong-import-position, too-many-locals, too-many-statements
+# pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, unused-import, wrong-import-position, too-many-locals, too-many-statements
 from typing import Any, Tuple, Optional, Union  # noqa
 
 import sys
-from pathlib import Path
+from pathlib import Path  # noqa
 import platform
 import signal
 from random import randint
@@ -376,8 +376,6 @@ if __name__ == "__main__":
         *   `Flag`: Should something go wrong, you can click Flag to save the output and inform the developer.
         """
     ).strip()
-
-    # "<p style='text-align: center'><a href='https://arxiv.org/abs/2112.11641' target='_blank'>JoJoGAN: One Shot Face Stylization</a>| <a href='https://github.com/mchong6/JoJoGAN' target='_blank'>Github Repo Pytorch</a></p> <center><img src='https://visitor-badge.glitch.me/badge?page_id=akhaliq_jojogan' alt='visitor badge'></center> <p style='text-align: center'>samples from repo: <img src='https://raw.githubusercontent.com/mchong6/JoJoGAN/main/teaser.jpg' alt='animation'/></p>"  # noqa
 
     article = dedent(
         """ <p style="text-align: center">readiobee docs:

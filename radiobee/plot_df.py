@@ -1,5 +1,5 @@
 """Plot pandas.DataFrame with DBSCAN clustering."""
-# pylint: disable=invalid-name, too-many-arguments
+# pylint: disable=invalid-name, too-many-arguments, unused-import
 import numpy as np  # noqa
 import pandas as pd
 import matplotlib
@@ -38,6 +38,7 @@ def plot_df(
 
     Args:
         df_: pandas.DataFrame, with three columns columns=["x", "y", "cos"]
+
     Returns:
         matplotlib.pyplot: for possible use in gradio
 

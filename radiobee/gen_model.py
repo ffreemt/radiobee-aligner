@@ -8,6 +8,8 @@ doc_term_matrix
 
 tokenized_docs = [insert_spaces(elm).split() for elm in textzh]
 """
+# pylint: disable=too-many-arguments, invalid-name, unused-import
+
 from typing import Dict, Iterable, List, Optional, Union  # noqa
 
 from textacy.representations import Vectorizer
@@ -30,16 +32,13 @@ def gen_model(
     """Generate a model (textacy.representations.Vectorizer).
 
     Args:
-        doc: tokenized docs
-
+        tokenized_docs: tokenized docs
         (refer to textacy.representation.Vectorizer)
         tf_type: Type of term frequency (tf) to use for weights' local component:
-
             - "linear": tf (tfs are already linear, so left as-is)
             - "sqrt": tf => sqrt(tf)
             - "log": tf => log(tf) + 1
             - "binary": tf => 1
-
         idf_type: Type of inverse document frequency (idf) to use for weights'
             global component:
 
@@ -91,8 +90,8 @@ def gen_model(
         for xelm in iter(tokenized_docs):
             for elm in iter(xelm):
                 assert isinstance(elm, str)
-    except AssertionError:
-        raise AssertionError(" tokenized_docs is not of the typing  Iterable[Iterable[str]] ")
+    except AssertionError as e:
+        raise AssertionError(" tokenized_docs is not of the typing  Iterable[Iterable[str]] ") from e
     except Exception as e:
         logger.error(e)
         raise

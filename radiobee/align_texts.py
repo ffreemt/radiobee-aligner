@@ -1,4 +1,6 @@
 """Align texts based on aset, src_text, tgt_text."""
+# pylint: disable=unused-variable
+
 from typing import List, Tuple, Union
 from logzero import logger
 

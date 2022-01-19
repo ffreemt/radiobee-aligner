@@ -9,11 +9,11 @@ from radiobee.insert_spaces import insert_spaces
 
 
 def gen_vector(text: Union[str, List[str]], model: Vectorizer) -> List[float]:
-    """Gen vector for a give model.
+    r"""Gen vector for a give model.
 
     Args:
         text: string of Chinese chars or English words.
-
+        model: model used
     filename = r"data\test-dual.txt"
     text = loadtext(filename)
     list1, list2 = zip(*text2lists(text))

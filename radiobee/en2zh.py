@@ -5,7 +5,9 @@ from typing import Iterable, List, Union
 import warnings
 
 import copy
-from radiobee.mdx_e2c import mdx_e2c
+
+# from radiobee.mdx_e2c import mdx_e2c  # moved to local for lazy loading
+# from lazy import lazy
 
 warnings.simplefilter('ignore', DeprecationWarning)
 
@@ -25,6 +27,9 @@ def en2zh(
     Returns
         res: list of str
     """
+    # to effect lazy loading
+    from radiobee.mdx_e2c import mdx_e2c  # pylint: disable=import-outside-toplevel
+
     res = copy.deepcopy(text)
     if isinstance(text, str):
         # res = [text.split()]

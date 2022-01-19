@@ -1,4 +1,6 @@
 """Convert two iesl to pandas.DataFrame."""
+# pylint: disable=invalid-name
+
 from itertools import zip_longest
 # import tempfile
 import pandas as pd

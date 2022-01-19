@@ -25,3 +25,5 @@ tqdm
 polyglot
 sentence_splitter
 icecream
+# lazy
+alive-progress

@@ -2,6 +2,8 @@
 
 tinybee.find_pairs.py with fixed estimator='dbscan' eps=eps, min_samples=min_samples
 """
+# pylint: disable=too-many-locals, unused-import, invalid-name
+
 from typing import List, Tuple, Union
 
 import numpy as np
@@ -22,6 +24,7 @@ def _gen_pset(
     # ) -> List[Tuple[int, int, Union[float, str]]]:
 ) -> List[Tuple[Union[float, str], Union[float, str], Union[float, str]]]:
     """Gen pset from cmat.
+
     Find pairs for a given cmat.
 
     Args:
@@ -86,8 +89,9 @@ def _gen_pset(
     # low_ = np.min(ymax) - 1  # reset to minimum_value - 1
 
     buff = [(-1, -1, ""), (tgt_len, src_len, "")]
-    # for _ in range(tgt_len):
-    for idx, tset_elm in enumerate(tset):
+
+    # for idx, tset_elm in enumerate(tset):
+    for tset_elm in tset:
         logger.debug("buff: %s", buff)
         # postion max in ymax and insert in buff
         # if with range given by iset+-delta and
@@ -152,6 +156,7 @@ def gen_pset(
 
     Refer to _gen_pset.
     """
+    del verbose
     gen_pset.min_samples = min_samples
     for min_s in range(min_samples):
         logger.debug(" min_samples, try %s", min_samples - min_s)

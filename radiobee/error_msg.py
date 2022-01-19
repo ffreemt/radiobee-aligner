@@ -1,4 +1,6 @@
 """Prepare an error message for gradiobee."""
+# pylint: disable=invalid-name
+
 from typing import Optional, Tuple, Union
 import pandas as pd
 

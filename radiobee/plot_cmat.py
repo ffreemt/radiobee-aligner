@@ -1,5 +1,6 @@
 """Plot pandas.DataFrame with DBSCAN clustering."""
-# pylint: disable=invalid-name, too-many-arguments
+# pylint: disable=invalid-name, too-many-arguments, too-many-locals
+
 import numpy as np
 import pandas as pd
 import matplotlib
@@ -37,13 +38,13 @@ def plot_cmat(
         backend: str = "Agg",
         showfig: bool = False,
 ):
-    # ) -> plt:
     # fmt: on
     """Plot df with DBSCAN clustering.
 
     Args:
         df_: pandas.DataFrame, with three columns columns=["x", "y", "cos"]
-    Returns:
+
+    Returns
         matplotlib.pyplot: for possible use in gradio
 
     plot_df(pd.DataFrame(cmat2tset(smat), columns=['x', 'y', 'cos']))

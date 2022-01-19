@@ -1,4 +1,6 @@
 """Gen triple-set from a  matrix."""
+# pylint: disable=unused-import
+
 from typing import List, Tuple, Union  # noqa
 
 import numpy as np

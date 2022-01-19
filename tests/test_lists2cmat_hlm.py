@@ -37,9 +37,9 @@ def test_lists2cmat_hlm():
     # cmat = texts2cmat(lst1, lst2, lang1, lang2)
     cmat = lists2cmat(lst1, lst2, lang1, lang2)
 
-    assert cmat.shape == (36, 33)
+    assert cmat.shape == (55, 135)
 
     cmat21 = lists2cmat(lst2, lst1, lang2, lang1)
 
-    assert cmat21.shape == (33, 36)
+    assert cmat21.shape == (135, 55)
     assert lists2cmat(lst2, lst1).mean() > 0.05  # 0.09

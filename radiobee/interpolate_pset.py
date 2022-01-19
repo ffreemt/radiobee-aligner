@@ -1,4 +1,5 @@
 """Interpolate np.nan."""
+# pylint: disable=invalid-name
 from typing import List, Tuple
 import numpy as np
 import pandas as pd

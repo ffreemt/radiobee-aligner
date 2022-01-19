@@ -1,4 +1,6 @@
 """Genereat align set (aset) based on pset (pair set), src_lang and tgt_len."""
+# pylint: disable=unused-variable
+
 from typing import List, Tuple, Union
 from itertools import zip_longest
 

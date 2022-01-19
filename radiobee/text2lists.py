@@ -1,5 +1,6 @@
 """Separate text to zh en lists."""
-# pylint: disable=
+# pylint: disable=unused-import, too-many-locals, invalid-name, too-many-branches, too-many-statements,
+
 
 # from typing import Tuple,
 from typing import Iterable, List, Optional, Tuple, Union  # noqa

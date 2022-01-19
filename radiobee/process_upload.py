@@ -1,4 +1,5 @@
 """Process uploads."""
+# pylint: disable=invalid-name, unused-import
 from typing import Union
 
 from pathlib import Path
@@ -51,7 +52,7 @@ def process_upload(upload: Union[tempfile._TemporaryFileWrapper, bytes]) -> str:
 
     if encoding is not None:
         try:
-            text = fpath.read_text(encoding)
+            text = fpath.read_text(encoding=encoding)
         except Exception as e:
             logger.error("Unable to retrieve text, error: %s", e)
             text = str(e)
@@ -63,7 +64,7 @@ def process_upload(upload: Union[tempfile._TemporaryFileWrapper, bytes]) -> str:
     # not able to cchardet: encoding is None, docx, pdf, epub, zip etc
     logger.info("Trying docx...to be implemented")
 
-    # TODO
+    # T ODO .docx .epub .mobi .pdf etc.
 
     _ = Path(upload.name)
     msg = f"binary file: {_.stem[:-8]}{_.suffix}"

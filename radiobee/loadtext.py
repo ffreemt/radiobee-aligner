@@ -1,5 +1,4 @@
-"""
-Load file content to text.
+"""Load file content to text.
 
 Check encoding and load a file to text.
 
@@ -16,6 +15,8 @@ magic.from_file("testdata/test.pdf")
 original load_textrev
 refer to load_paras.py
 """
+# pylint: disable=line-too-long, unused-variable, unused-import
+
 from typing import Optional, Union  # noqa
 from pathlib import Path
 import cchardet
@@ -34,7 +35,7 @@ def loadtext(filepath: Union[Path, str] = "") -> str:
     if not filepath.is_file():
         logger.error(" file [%s] does not exist or is not a file.", filepath)
         # return None
-        raise Exception(" file [%s] does not exist or is not a file." % filepath)
+        raise Exception(" file [{filepath}] does not exist or is not a file.")
 
     # encoding = detect_file(filepath)
     encoding = cchardet.detect(filepath.read_bytes()).get("encoding", "utf8")
@@ -44,7 +45,7 @@ def loadtext(filepath: Union[Path, str] = "") -> str:
 
     # cchardet: 'GB18030', no need for errors="ignore"
     try:
-        text = filepath.read_text(encoding, errors="ignore")
+        text = filepath.read_text(encoding=encoding, errors="ignore")
     except Exception as exc:
         logger.error(" Opening %s resulted in errors: %s", filepath, exc)
         raise
@@ -53,8 +54,7 @@ def loadtext(filepath: Union[Path, str] = "") -> str:
 
 
 def test1():
-    r"""
-    Tests default file.
+    r"""Tests default file.
 
     defaultdir = r'D:\dl\Dropbox\mat-dir\snippets-mat\pyqt'
     defaultfile = r'notes pyqt tkinter tktable.txt'
@@ -69,10 +69,11 @@ def test1():
 
 
 def testgb():
-    r"""
-    Tests  D:\dl\Dropbox\shuangyu_ku\txt-books\19部世界名著中英文对照版TXT
-    """
-    file = r"C:\dl\Dropbox\shuangyu_ku\txt-books\19部世界名著中英文对照版TXT" r"\爱丽丝漫游奇境记.txt"
+    r"""Tests shuangyu_ku\txt-books\19部世界名著中英文对照版TXT."""
+    file = (
+        r"C:\dl\Dropbox\shuangyu_ku\txt-books\19部世界名著中英文对照版TXT"
+        r"\爱丽丝漫游奇境记.txt"
+    )
     text = loadtext(file)
     if text:
         # assert len(text) == 190913
@@ -84,10 +85,8 @@ def testgb():
         assert text0 == text[:500]
 
 
-def testUTF_16LE():
-    r"""
-    Test  'E:\\beta_final_version\\build\\test_files\\files_for_testing_import\\Folding_Beijing_12.txt'.
-    """
+def test_utf_16le():
+    r"""Test  'E:\\beta_final_version\\build\\test_files\\files_for_testing_import\\Folding_Beijing_12.txt'."""
     # file = 'E:\\beta_final_version\\build\\test_files\\files_for_testing_import\\Folding_Beijing_12.txt'  # NOQA
     file = r"C:\dl\Dropbox\mat-dir\snippets-mat\pyqt\Sandbox\hp_beta-version_files\test_files\files_for_testing_import\Folding_Beijing_12.txt"  # NOQA
     file = r"C:\dl\Dropbox\mat-dir\pyqt\Sandbox\hp_beta-version_files\test_files\files_for_testing_import\Folding_Beijing_12.txt"

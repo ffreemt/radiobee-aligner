@@ -3,6 +3,7 @@
 mdx_e2c = joblib.load("./mdx_dict_e2c.lzma")
 mdx_c2e = joblib.load("./mdx_dict_e2c.lzma")
 """
+# pylint: disable=invalid-name,
 from pathlib import Path
 from string import punctuation
 import joblib

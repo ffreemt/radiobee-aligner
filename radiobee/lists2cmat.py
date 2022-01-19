@@ -1,5 +1,6 @@
 """Convert two lists of str (texts) to correlation matrix."""
-# from typing import Dict, Iterable, Optional, Union
+# pylint: disable=too-many-arguments, too-many-locals, unused-import
+
 from typing import Dict, Iterable, List, Optional, Union  # noqa
 
 import numpy as np
@@ -32,6 +33,26 @@ def lists2cmat(
         vocabulary_terms: Optional[Union[Dict[str, int], Iterable[str]]] = None
 ) -> np.ndarray:
     # fmt: on
+    """Convert two lists to cmat.
+
+    Args:
+        text1: refer smatrix
+        text2: refer smatrix
+        lang1: optional 1st lang code
+        lang2: optional 2nd lang code
+        dl_type: doc lenth
+        idf_type: idf tyoe
+        max_df: max doc freq
+        max_n_terms: max n terms
+        min_df: min doc freq
+        model: optional model
+        norm: norm
+        tf_type: term freq type
+        vocabulary_terms: vocab refer smatrix
+
+    Returs
+        cmat
+    """
     if isinstance(text1, str):
         text1 = [text1]
     if isinstance(text2, str):

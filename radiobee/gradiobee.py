@@ -1,5 +1,5 @@
 """Gradiobee."""
-# pylint: disable=invalid-name
+# pylint: disable=invalid-name, too-many-arguments, too-many-branches, too-many-locals, too-many-statements, unused-variable, too-many-return-statements, unused-import
 from pathlib import Path
 import platform
 import inspect
@@ -12,9 +12,9 @@ from fastlid import fastlid
 from logzero import logger
 from icecream import ic
 
-import numpy as np
+import numpy as np  # noqa
 import pandas as pd
-import matplotlib
+import matplotlib  # noqa
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -32,11 +32,8 @@ from radiobee.text2lists import text2lists
 
 uname = platform.uname()
 HFSPACES = False
-# if "amzn2" in uname.release:  # on hf spaces
-if True:
+if "amzn2" in uname.release:  # on hf spaces
     HFSPACES = True
-    from sentence_transformers import SentenceTransformer  # noqa
-    model_s = SentenceTransformer('sentence-transformers/distiluse-base-multilingual-cased-v1')
 
 sns.set()
 sns.set_style("darkgrid")
@@ -191,8 +188,8 @@ def gradiobee(
 
     logger.debug("lang1: %s, lang2: %s", lang1, lang2)
     if debug:
-        print("gradiobee.py ln 82 lang1: %s, lang2: %s" % (lang1, lang2))
-        print("fast track? ", lang1 in lang_en_zh and lang2 in lang_en_zh)
+        ic(f" lang1: {lang1}, lang2: {lang2}")
+        ic("fast track? ", lang1 in lang_en_zh and lang2 in lang_en_zh)
 
     # fast track
     if lang1 in lang_en_zh and lang2 in lang_en_zh:
@@ -225,6 +222,7 @@ def gradiobee(
             )
             return error_msg(msg, "info ")
         try:
+            from radiobee.model_s import model_s  # pylint: disable=import-outside-toplevel
             vec1 = model_s.encode(list1)
             vec2 = model_s.encode(list2)
             # cmat = vec1.dot(vec2.T)

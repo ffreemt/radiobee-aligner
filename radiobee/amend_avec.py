@@ -1,5 +1,5 @@
 """Amend avec from align_block."""
-# pylint: disable=
+# pylint: disable=unused-variable, unused-import
 
 from typing import List, Tuple, Union
 
