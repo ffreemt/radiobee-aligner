@@ -1,6 +1,7 @@
 """Test paras2sents."""
 # pylint: disable=invalid-name
 
+import numpy as np
 import pandas as pd
 from radiobee.paras2sents import paras2sents
 from radiobee.shuffle_sents import shuffle_sents
@@ -14,15 +15,20 @@ def test_paras2sents_dual():
     """Test paras2sents_dual."""
     sents = paras2sents(paras)
 
+    assert np.array(sents).shape.__len__() > 1
+
     assert len(sents) > 202  # 208
     # assert not sents
 
 
 def test_paras2sents_dual_model_s():
     """Test paras2sents_dual_model_s."""
-    sents = paras2sents(paras, shuffle_sents)
+    sents1 = paras2sents(paras, shuffle_sents)
 
-    assert len(sents) > 201  # 207
+    # assert np.array(sents1).shape.__len__() > 1
+    assert pd.DataFrame(sents1).shape.__len__() > 1
+
+    assert len(sents1) > 201  # 207
     # assert not sents
 
 

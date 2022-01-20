@@ -30,6 +30,10 @@ from radiobee.trim_df import trim_df
 from radiobee.error_msg import error_msg
 from radiobee.text2lists import text2lists
 
+from radiobee.align_sents import align_sents
+from radiobee.shuffle_sents import shuffle_sents  # type: ignore
+from radiobee.paras2sents import paras2sents  # type: ignore
+
 uname = platform.uname()
 HFSPACES = False
 if "amzn2" in uname.release:  # on hf spaces
@@ -43,7 +47,7 @@ debug = False
 debug = True
 
 
-def gradiobee(
+def gradiobee(  # noqa
     file1,
     file2,
     tf_type,
@@ -53,6 +57,7 @@ def gradiobee(
     eps,
     min_samples,
     # debug=False,
+    sent_ali_algo,
 ):
     """Process inputs and return outputs."""
     logger.debug(" *debug* ")
@@ -382,7 +387,7 @@ def gradiobee(
     df_aligned = df_aligned[["text2", "text1", "likelihood"]]
     df_aligned.columns = ["text1", "text2", "likelihood"]
 
-    ic(df_aligned.head())
+    ic("paras aligned: ", df_aligned.head(10))
 
     # round the last column to 2
     # df_aligned.likelihood = df_aligned.likelihood.round(2)
@@ -434,8 +439,66 @@ def gradiobee(
     # return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned
     # return df_trimmed, output_plot, file_dl, file_dl_xlsx, styled, df_html  # gradio cant handle style
 
-    ic("returning outputs")
+    ic("sent-ali-algo: ", sent_ali_algo)
 
-    return df_trimmed, output_plot, file_dl, file_dl_xlsx, df_aligned, df_html
+    # ### sent-ali-algo is None: para align
+    if sent_ali_algo in ["None"]:
+        ic("returning para-ali outputs")
+        return df_trimmed, output_plot, file_dl, file_dl_xlsx, None, None, df_aligned, df_html
 
-    # modi outputs
+    # ### proceed with sent align
+    if sent_ali_algo in ["fast"]:
+        ic(sent_ali_algo)
+        align_func = align_sents
+
+        ic(df_aligned.shape, df_aligned.columns)
+
+        aligned_sents = paras2sents(df_aligned, align_func)
+
+        # ic(pd.DataFrame(aligned_sents).shape, aligned_sents)
+        ic(pd.DataFrame(aligned_sents).shape)
+
+        df_aligned_sents = pd.DataFrame(aligned_sents, columns=["text1", "text2"])
+    else:  # ["slow"]
+        ic(sent_ali_algo)
+        align_func = shuffle_sents
+        aligned_sents = paras2sents(df_aligned, align_func, lang1, lang2)
+
+        # add extra entry if necessary
+        aligned_sents = [list(sent) + [""] if len(sent) == 2 else list(sent) for sent in aligned_sents]
+
+        df_aligned_sents = pd.DataFrame(aligned_sents, columns=["text1", "text2", "likelihood"])
+
+    # prepare sents downloads
+    file_dl_sents = Path(f"{file_dl.stem}-sents{file_dl.suffix}")
+    file_dl_xlsx_sents = Path(f"{file_dl_xlsx.stem}-sents{file_dl_xlsx.suffix}")
+    _ = df_aligned_sents.to_csv(index=False)
+    file_dl_sents.write_text(_, encoding="utf8")
+
+    df_aligned_sents.to_excel(file_dl_xlsx_sents)
+
+    # prepare html output
+    if len(df_aligned_sents) > 200:
+        df_html = None
+    else:  # show a one-bathc table in html
+        # style
+        styled = df_aligned_sents.style.set_properties(
+            **{
+                "font-size": "10pt",
+                "border-color": "black",
+                "border": "1px black solid !important"
+            }
+            # border-color="black",
+        ).set_table_styles([{
+            "selector": "",  # noqs
+            "props": [("border", "2px black solid !important")]}]  # noqs
+        ).format(
+            precision=2
+        )
+        df_html = styled.to_html()
+
+    # aligned sents outputs
+    ic("aligned sents outputs")
+
+    # return df_trimmed, output_plot, file_dl, file_dl_xlsx, None, None, df_aligned, df_html
+    return df_trimmed, output_plot, file_dl, file_dl_xlsx, file_dl_sents, file_dl_xlsx_sents, df_aligned_sents, df_html

@@ -4,6 +4,8 @@ from typing import Any, Tuple, Optional, Union  # noqa
 
 import sys
 from pathlib import Path  # noqa
+import subprocess as sp
+import shlex
 import platform
 import signal
 from random import randint
@@ -41,7 +43,10 @@ from radiobee.process_upload import process_upload
 from radiobee.gradiobee import gradiobee
 
 ic_install()
-ic.configureOutput(includeContext=True)
+ic.configureOutput(
+    includeContext=True,
+    outputFunction=logger.info,
+)
 ic.enable()
 # ic.disenable()  # to turn off
 
@@ -105,6 +110,12 @@ if __name__ == "__main__":
         debug = False
         debug = True
         share = True
+
+        # set UTC+8, probably wont work in hf spaces, no permission
+        try:
+            sp.check_output(shlex.split("ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime"))
+        except Exception as exc:
+            logger.error(" set timezonef failed: %s", exc)
     else:
         server_name = "127.0.0.1"
         share = False
@@ -128,7 +139,6 @@ if __name__ == "__main__":
         gr.inputs.File(label="file 2", optional=True),
     ]
 
-    # modi 1
     _ = """
         tf_type: Literal[linear, sqrt, log, binary] = 'linear'
         idf_type: Optional[Literal[standard, smooth, bm25]] = None
@@ -148,10 +158,13 @@ if __name__ == "__main__":
     )  # ditto
     input_norm_type = gr.inputs.Radio(["None", "l1", "l2"], default="None")  # ditto
 
-    inputs = [
+    # modi inputs 1, definitions
+    sent_ali_algo = gr.inputs.Radio(["None", "fast", "slow"], default="None")
+
+    inputs = [  # tot. 9, meed to modify input of gradio & examples
         gr.inputs.File(label="file 1"),
         gr.inputs.File(label="file 2", optional=True),
-        input_tf_type,  # modi inputs
+        input_tf_type,  # modi inputs 2
         input_idf_type,
         input_dl_type,
         input_norm_type,
@@ -167,6 +180,7 @@ if __name__ == "__main__":
             step=1,
             default=6,
         ),
+        sent_ali_algo,
     ]
 
     examples = [
@@ -179,6 +193,29 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
+        ],
+        [
+            "data/test_zh.txt",
+            "data/test_en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+            "fast",
+        ],
+        [
+            "data/test_zh.txt",
+            "data/test_en.txt",
+            "linear",
+            "None",
+            "None",
+            "None",
+            10,
+            6,
+            "slow",
         ],
         [
             "data/test_en.txt",
@@ -189,6 +226,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/shakespeare_zh500.txt",
@@ -199,6 +237,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/shakespeare_en500.txt",
@@ -209,6 +248,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/hlm-ch1-zh.txt",
@@ -219,6 +259,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/hlm-ch1-en.txt",
@@ -229,6 +270,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/ps-cn.txt",
@@ -239,6 +281,7 @@ if __name__ == "__main__":
             "None",
             10,
             4,
+            "None",
         ],
         [
             "data/test-dual.txt",
@@ -249,6 +292,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/英译中国现代散文选1(汉外对照丛书).txt",
@@ -259,6 +303,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/test-zh-ja.txt",
@@ -269,6 +314,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/xiyouji-ch1-zh.txt",
@@ -279,6 +325,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/demian-hesse-de.txt",
@@ -289,6 +336,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
         [
             "data/catcher-in-the-rye-shixianrong-zh.txt",
@@ -299,6 +347,7 @@ if __name__ == "__main__":
             "None",
             10,
             6,
+            "None",
         ],
     ]
 
@@ -329,14 +378,23 @@ if __name__ == "__main__":
     out_file_dl_excel = gr.outputs.File(
         label="Click to download xlsx",
     )
+    out_sents_dl = gr.outputs.File(
+        label="Click to download sents csv",
+    )
+    out_sents_dl_excel = gr.outputs.File(
+        label="Click to download sents xlsx",
+    )
 
-    # modi outputs
-    outputs = [
+    # modi outputs 1, definitions
+
+    # modi outputs 2, need to modify gradio error_msg
+    outputs = [  # tot. 8
         out_df,
-        # "plot",
         gr.outputs.Image(label="plot"),
         out_file_dl,
         out_file_dl_excel,
+        out_sents_dl,
+        out_sents_dl_excel,
         out_df_aligned,
         gr.outputs.HTML(),
     ]

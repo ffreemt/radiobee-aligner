@@ -67,6 +67,11 @@ def align_sents(lst1: List[str], lst2: List[str]) -> List[Tuple[str, str]]:
 
         texts.append(tuple(_))
 
-    return texts
+    _ = """
+    _ = []
+    for elm in texts:
+        _.extend(elm)
+    return _
+    """
 
-    # return ["", ""]
+    return texts
