@@ -2,10 +2,13 @@
 # pylint: disable=invalid-name, too-many-arguments, unused-argument, redefined-builtin, unused-import, wrong-import-position, too-many-locals, too-many-statements
 from typing import Any, Tuple, Optional, Union  # noqa
 
+import os
 import sys
 from pathlib import Path  # noqa
-import subprocess as sp
-import shlex
+
+# import subprocess as sp
+# import shlex
+import time
 import platform
 import signal
 from random import randint
@@ -109,17 +112,18 @@ if __name__ == "__main__":
         server_name = "0.0.0.0"
         debug = False
         debug = True
-<<<<<<< HEAD
         share = True
+        share = False
 
         # set UTC+8, probably wont work in hf spaces, no permission
+        _ = """
         try:
             sp.check_output(shlex.split("ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime"))
         except Exception as exc:
             logger.error(" set timezonef failed: %s", exc)
-=======
-        share = False
->>>>>>> refs/remotes/origin/main
+        # """
+        os.environ["TZ"] = "Asia/Shanghai"
+        time.tzset()
     else:
         server_name = "127.0.0.1"
         share = False
