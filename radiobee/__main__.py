@@ -104,7 +104,7 @@ if __name__ == "__main__":
         server_name = "0.0.0.0"
         debug = False
         debug = True
-        share = True
+        share = False
     else:
         server_name = "127.0.0.1"
         share = False
@@ -437,7 +437,7 @@ if __name__ == "__main__":
             "excelsior",
         ],  # "paragon"],
         css=f"{css_image} {css_input_file} {css_output_file}",
-        enable_queue=True,
+        # enable_queue=True,
     )
 
     iface.launch(
