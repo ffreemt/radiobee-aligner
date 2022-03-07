@@ -35,7 +35,7 @@ def loadtext(filepath: Union[Path, str] = "") -> str:
     if not filepath.is_file():
         logger.error(" file [%s] does not exist or is not a file.", filepath)
         # return None
-        raise Exception(" file [{filepath}] does not exist or is not a file.")
+        raise Exception(f" file [{filepath}] does not exist or is not a file.")
 
     # encoding = detect_file(filepath)
     encoding = cchardet.detect(filepath.read_bytes()).get("encoding", "utf8")

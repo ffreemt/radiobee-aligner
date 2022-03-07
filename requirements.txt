@@ -23,6 +23,7 @@ pyicu
 pycld2
 tqdm
 polyglot
+nltk
 sentence_splitter
 icecream
 # lazy

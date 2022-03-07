@@ -109,6 +109,7 @@ if __name__ == "__main__":
         server_name = "0.0.0.0"
         debug = False
         debug = True
+<<<<<<< HEAD
         share = True
 
         # set UTC+8, probably wont work in hf spaces, no permission
@@ -116,6 +117,9 @@ if __name__ == "__main__":
             sp.check_output(shlex.split("ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime"))
         except Exception as exc:
             logger.error(" set timezonef failed: %s", exc)
+=======
+        share = False
+>>>>>>> refs/remotes/origin/main
     else:
         server_name = "127.0.0.1"
         share = False
@@ -485,7 +489,7 @@ if __name__ == "__main__":
         # theme="darkgrass",
         theme="grass",
         layout="vertical",  # horizontal unaligned
-        allow_flagging="manual",  # "auto"
+        allow_flagging="never",  # "auto" "manual"
         flagging_options=[
             "fatal",
             "bug",
@@ -493,7 +497,7 @@ if __name__ == "__main__":
             "excelsior",
         ],  # "paragon"],
         css=f"{css_image} {css_input_file} {css_output_file}",
-        enable_queue=True,
+        # enable_queue=True,
     )
 
     iface.launch(
