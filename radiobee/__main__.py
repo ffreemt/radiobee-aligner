@@ -514,7 +514,7 @@ if __name__ == "__main__":
         # show_tips=True,
         enable_queue=True,
         # height=150,  # 500
-        width=900,  # 900
+        # width=900,  # 900
     )
 
 _ = """
