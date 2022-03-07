@@ -409,15 +409,15 @@ def gradiobee(  # noqa
         ).set_table_styles([{
             "selector": "",  # noqs
             "props": [("border", "2px black solid !important")]}]  # noqs
-        ).format(
-            precision=2
-        )
+        ).set_precision(2)
+        
         # .bar(subset="likelihood", color="#5fba7d")
 
         # .background_gradient("Greys")
 
         # df_html = df_aligned.to_html()
-        df_html = styled.to_html()
+        # df_html = styled.to_html()
+        df_html = styled.render()
 
     # ===
     if plot_dia:

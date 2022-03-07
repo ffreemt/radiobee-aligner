@@ -126,7 +126,7 @@ if __name__ == "__main__":
         time.tzset()
     else:
         server_name = "127.0.0.1"
-        share = False
+        share = True
 
     if debug:
         logzero.loglevel(10)
