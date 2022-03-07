@@ -429,7 +429,7 @@ if __name__ == "__main__":
         # theme="darkgrass",
         theme="grass",
         layout="vertical",  # horizontal unaligned
-        allow_flagging="manual",  # "auto"
+        allow_flagging="never",  # "auto" "manual"
         flagging_options=[
             "fatal",
             "bug",
