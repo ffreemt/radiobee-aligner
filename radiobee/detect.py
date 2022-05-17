@@ -29,7 +29,7 @@ def with_func_attrs(**attrs: Any) -> Callable:
 def detect(text: str, set_languages: Optional[List[str]] = None) -> str:
     """Detect language via polyglot and fastlid.
 
-    check first with fastlid, if conf < 0.3, check with
+    check first with fastlid, if conf < 0.3, check with polyglot.text.Detector
 
     Alternative in detec_alt.py
     """

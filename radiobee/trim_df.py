@@ -14,12 +14,8 @@ def trim_df(
             [
                 df1.iloc[:len_, :],
                 pd.DataFrame(
-                    [
-                        [
-                            "...",
-                            "...",
-                        ]
-                    ],
+                    # [["...", "...",]],
+                    [["..."] * len(df1.columns)],
                     columns=df1.columns,
                 ),
                 df1.iloc[-len_:, :],

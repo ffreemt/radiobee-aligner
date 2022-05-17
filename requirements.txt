@@ -28,3 +28,6 @@ sentence_splitter
 icecream
 # lazy
 alive-progress
+
+# cli
+click
